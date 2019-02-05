@@ -6,13 +6,7 @@ class Ffmpeg < Formula
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
-### disable bottles since they might not match and this is for people that need to compile it themselves anyway
-#  bottle do
-#    rebuild 1
-#    sha256 "deeef583bec7a4f92a73846bfda57d8dc0afe6f039245389ca0668b3d76a88d2" => :mojave
-#    sha256 "fc62b7833925baf83d2792068b4dfe62c001d4515347375631efadcef727643a" => :high_sierra
-#    sha256 "71c3ef3e6cb313833ca19c735599416b8290e8b5b307242c64659367d05dc984" => :sierra
-#  end
+  ### No bottles included since this is for people that will end up compling with their chosen options anyway
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
