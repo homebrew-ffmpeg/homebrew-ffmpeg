@@ -31,8 +31,6 @@ class Ffmpeg < Formula
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
 
-  deprecated_option "with-libtesseract" => "with-tesseract"
-
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
@@ -115,6 +113,7 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
+      --enable-opencl
       --disable-libjack
       --disable-indev=jack
     ]
@@ -142,7 +141,6 @@ class Ffmpeg < Formula
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
-    args << "--enable-opencl" if MacOS.version > :lion
     args << "--enable-openssl" if build.with? "openssl"
 
     if build.with? "openjpeg"
