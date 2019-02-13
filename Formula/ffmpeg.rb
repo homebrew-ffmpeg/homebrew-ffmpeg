@@ -106,11 +106,14 @@ class Ffmpeg < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
-      --enable-videotoolbox
-      --enable-opencl
       --disable-libjack
       --disable-indev=jack
     ]
+
+    if OS.mac?
+        args << "--enable-opencl"
+        args << "--enable-videotoolbox"
+    end
 
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
     args << "--enable-chromaprint" if build.with? "chromaprint"
