@@ -49,6 +49,12 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
 
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "bzip2"
+    depends_on "linuxbrew/xorg/libxv"
+  end
+
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
