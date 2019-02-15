@@ -111,8 +111,8 @@ class Ffmpeg < Formula
     ]
 
     if OS.mac?
-        args << "--enable-opencl"
-        args << "--enable-videotoolbox"
+      args << "--enable-opencl"
+      args << "--enable-videotoolbox"
     end
 
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
