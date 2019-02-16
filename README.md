@@ -27,3 +27,11 @@ brew install ffmpeg --with-<CHOSEN_OPTIONS>
 
 #### Note about tap pinning
 Using `brew tap-pin` gives this tap's `ffmpeg` formula priority over homebrew-core to make installation simpler.  Now `ffmpeg` will refer to this tap's formula.  If you don't want to pin this tap you can still reference this tap's ffmpeg formula directly with `varenc/ffmpeg/ffmpeg`. Tap pinning will not influence an `ffmpeg` dependency in another formula.
+
+#### Old repo name
+This repo was previously referenced in homebrew as 'ffmpeg-with-options'. Thanks to GitHub redirects, references to the old name should still work but to update to the tap new name,	just do	this:
+```
+brew untap varenc/ffmpeg-with-options
+brew tap varenc/ffmpeg
+brew tap-pin varenc/ffmpeg
+```
