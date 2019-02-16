@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   sha256 "373749824dfd334d84e55dff406729edfd1606575ee44dd485d97d45ea4d2d86"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
-  # This formula is for people that will comple with their chosen options
+  # This formula is for people that will compile with their chosen options
   bottle :unneeded
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
