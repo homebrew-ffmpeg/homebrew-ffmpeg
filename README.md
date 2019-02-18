@@ -5,6 +5,7 @@ This is a 3rd party tap for [Homebrew](http://brew.sh/). It provides a formula f
 Contents:
 
 - [Installation and usage](#installation-and-usage)
+- [Updating](#updating)
 - [FAQ](#faq)
 - [Issues](#issues)
 - [Maintainers](#maintainers)
@@ -59,6 +60,20 @@ brew install ffmpeg $(brew options ffmpeg --compact)
 ```
 
 Note that this will perform a full build of ffmpeg and its dependencies, which may take a while depending on your machine's capabilities.
+
+## Updating
+
+To update Homebrew and upgrade the formula to the most recent stable release:
+
+```
+brew update && brew upgrade ffmpeg
+```
+
+Or, if you are using the `HEAD` version and want to update to the latest commit:
+
+```
+brew update && brew upgrade ffmpeg --fetch-HEAD
+```
 
 ## FAQ
 
