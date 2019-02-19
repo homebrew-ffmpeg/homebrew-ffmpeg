@@ -16,12 +16,13 @@ class Ffmpeg < Formula
   option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
+  option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
   option "with-rubberband", "Enable rubberband library"
   option "with-webp", "Enable using libwebp to encode WEBP images"
-  option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
+  option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
@@ -38,7 +39,6 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libvorbis"
   depends_on "libvpx"
-  depends_on "opencore-amr"
   depends_on "opus"
   depends_on "rtmpdump"
   depends_on "sdl2"
@@ -69,6 +69,7 @@ class Ffmpeg < Formula
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
+  depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
@@ -85,14 +86,10 @@ class Ffmpeg < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --enable-pthreads
-      --enable-version3
       --enable-hardcoded-tables
-      --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
-      --enable-ffplay
       --enable-gpl
       --enable-libaom
       --enable-libmp3lame
@@ -104,13 +101,10 @@ class Ffmpeg < Formula
       --enable-libx264
       --enable-libx265
       --enable-libxvid
-      --enable-lzma
       --enable-libfontconfig
       --enable-libfreetype
       --enable-frei0r
       --enable-libass
-      --enable-libopencore-amrnb
-      --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
       --disable-libjack
@@ -146,6 +140,12 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
+
+    if build.with? "opencore-amr"
+      args << "--enable-version3"
+      args << "--enable-libopencore-amrnb"
+      args << "--enable-libopencore-amrwb"
+    end
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
