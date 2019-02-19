@@ -43,7 +43,6 @@ class Ffmpeg < Formula
   depends_on "rtmpdump"
   depends_on "sdl2"
   depends_on "snappy"
-  depends_on "speex"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
@@ -73,6 +72,7 @@ class Ffmpeg < Formula
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
   depends_on "rubberband" => :optional
+  depends_on "speex" => :optional
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
@@ -105,7 +105,6 @@ class Ffmpeg < Formula
       --enable-frei0r
       --enable-libass
       --enable-librtmp
-      --enable-libspeex
       --disable-libjack
       --disable-indev=jack
     ]
@@ -128,6 +127,7 @@ class Ffmpeg < Formula
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libsoxr" if build.with? "libsoxr"
+    args << "--enable-libspeex" if build.with? "speex"
     args << "--enable-libsrt" if build.with? "srt"
     args << "--enable-libssh" if build.with? "libssh"
     args << "--enable-libtesseract" if build.with? "tesseract"
