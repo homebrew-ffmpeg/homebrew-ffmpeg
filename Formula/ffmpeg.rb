@@ -142,8 +142,12 @@ class Ffmpeg < Formula
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
 
-    if build.with? "opencore-amr"
+    # packages that need additional license options
+    if build.with? "opencore-amr" or build.with? "libvmaf"
       args << "--enable-version3"
+    end
+
+    if build.with? "opencore-amr"
       args << "--enable-libopencore-amrnb"
       args << "--enable-libopencore-amrwb"
     end
