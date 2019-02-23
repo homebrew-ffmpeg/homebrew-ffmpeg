@@ -168,6 +168,13 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
+
+    if build.with? "tesseract"
+      opoo <<~EOS
+        The default `tesseract` dependency includes limited language support.
+        To add all supported languages, install the `tesseract-lang` formula.
+      EOS
+    end
   end
 
   test do
