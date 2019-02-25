@@ -21,6 +21,8 @@ brew tap varenc/ffmpeg
 brew tap-pin varenc/ffmpeg
 ```
 
+**Note:** If you already have `ffmpeg` installed from Homebrew core, you need to first run `brew uninstall ffmpeg` before you can use this tap.
+
 ### Default installation
 
 To install the default version of the formula, run:
