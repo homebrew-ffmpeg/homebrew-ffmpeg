@@ -143,7 +143,7 @@ class Ffmpeg < Formula
     args << "--enable-openssl" if build.with? "openssl"
 
     # packages that need additional license options
-    if build.with? "opencore-amr" or build.with? "libvmaf"
+    if build.with?("opencore-amr") || build.with?("libvmaf")
       args << "--enable-version3"
     end
 
