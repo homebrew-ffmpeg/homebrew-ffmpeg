@@ -1,9 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.2.tar.xz"
-  version "4.1.2-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "b95f0ae44798ab1434155ac7f81f30a7e9760a02282e4b5898372c22a335347b"
+  url "https://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz"
+  version "4.1.3-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "0c3020452880581a8face91595b239198078645e7d7184273b8bcc7758beb63d"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   # This formula is for people that will compile with their chosen options
