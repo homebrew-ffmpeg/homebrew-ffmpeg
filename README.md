@@ -28,7 +28,7 @@ brew install varenc/ffmpeg/ffmpeg
 To see the list of supported options for this formula, run:
 
 ```
-brew options ffmpeg
+brew options varenc/ffmpeg/ffmpeg
 ```
 
 Then, you can run:
