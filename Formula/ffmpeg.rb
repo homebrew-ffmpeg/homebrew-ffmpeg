@@ -26,6 +26,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
+  option "with-libxml2", "Enable libxml2 library"
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
@@ -67,6 +68,7 @@ class Ffmpeg < Formula
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
+  depends_on "libxml2" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -137,6 +139,7 @@ class Ffmpeg < Formula
     args << "--enable-libvmaf" if build.with? "libvmaf"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
+    args << "--enable-libxml2" if build.with? "libxml2"
     args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
