@@ -34,7 +34,7 @@ brew options ffmpeg
 Then, you can run:
 
 ```
-brew install ffmpeg --with-<option1> --with-<option2> ...
+brew install varenc/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
 ```
 
 ### Installing latest Git version (`HEAD`)
@@ -42,7 +42,7 @@ brew install ffmpeg --with-<option1> --with-<option2> ...
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
 
 ```
-brew install ffmpeg --HEAD
+brew install varenc/ffmpeg/ffmpeg --HEAD
 ```
 
 ### Installing *everything*
@@ -50,7 +50,7 @@ brew install ffmpeg --HEAD
 To compile and install ffmpeg with *all* options, just run:
 
 ```
-brew install ffmpeg $(brew options ffmpeg --compact)
+brew install varenc/ffmpeg/ffmpeg $(brew options varenc/ffmpeg/ffmpeg --compact)
 ```
 
 Note that this will perform a full build of ffmpeg and its dependencies, which may take a while depending on your machine's capabilities.
@@ -60,13 +60,13 @@ Note that this will perform a full build of ffmpeg and its dependencies, which m
 To update Homebrew and upgrade the formula to the most recent stable release:
 
 ```
-brew update && brew upgrade ffmpeg
+brew update && brew upgrade varenc/ffmpeg/ffmpeg
 ```
 
 Or, if you are using the `HEAD` version and want to update to the latest commit:
 
 ```
-brew update && brew upgrade ffmpeg --fetch-HEAD
+brew update && brew upgrade varenc/ffmpeg/ffmpeg --fetch-HEAD
 ```
 
 ## Issues
