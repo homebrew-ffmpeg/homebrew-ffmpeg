@@ -93,6 +93,7 @@ This formula features the following libraries:
 | `x265` | ✔ | x265 HEVC encoder |
 | `xz` | ✔ | XZ compression support |
 | `chromaprint` | | Chromaprint audio fingerprinting library |
+| `decklink` | | Enable DeckLink support |
 | `fdk-aac` | | Fraunhofer FDK AAC library |
 | `game-music-emu` | | game-music-emu support |
 | `libbluray` | | libbluray support |
