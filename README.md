@@ -72,56 +72,61 @@ brew update && brew upgrade varenc/ffmpeg/ffmpeg --fetch-HEAD
 
 ## Included libraries
 
-This formula features the following libraries:
+This formula installs the following libraries by default:
 
-| Dependency | Included by default? | Description |
-| ---------- | -------------------- | ----------- |
-| `libaom` | ✔ | AV1 encoder |
-| `fontconfig` | ✔ | Font access library |
-| `freetype` | ✔ | Freetype font engine |
-| `frei0r` | ✔ | frei0r filters |
-| `lame` | ✔ | LAME MP3 encoder |
-| `libass` | ✔ | ASS subtitle support |
-| `libvorbis` | ✔ | Vorbis encoder |
-| `libvpx` | ✔ | VP8 and VP9 encoder |
-| `opus` | ✔ | Opus encoder |
-| `rtmpdump` | ✔ | RTMP dumping support |
-| `sdl2` | ✔ | Simple DirectMedia Layer |
-| `snappy` | ✔ | Snappy compression support |
-| `theora` | ✔ | Theora encoder |
-| `x264` | ✔ | x264 H.264 encoder |
-| `x265` | ✔ | x265 HEVC encoder |
-| `xz` | ✔ | XZ compression support |
-| `chromaprint` | | Chromaprint audio fingerprinting library |
-| `decklink` | | Enable DeckLink support |
-| `fdk-aac` | | Fraunhofer FDK AAC library |
-| `game-music-emu` | | game-music-emu support |
-| `libbluray` | | libbluray support |
-| `libbs2b` | | libbs2b support |
-| `libcaca` | | libcaca support |
-| `libgsm` | | libgsm support |
-| `libmodplug` | | libmodplug support |
-| `librsvg` | | SVG files as inputs via librsvg |
-| `libsoxr` | | soxr resample library |
-| `libssh` | | SFTP protocol via libssh |
-| `libvidstab` | | vid.stab support for video stabilization |
-| `libvmaf` | | VMAF video quality metric |
-| `libxml2` | | libxml2 library |
-| `opencore-amr` | | Opencore AMR NR/WB audio format |
-| `openh264` | | OpenH264 library |
-| `openjpeg` | | JPEG 2000 image format |
-| `openssl` | | SSL support |
-| `rtmpdump` | | rtmpdump support |
-| `rubberband` | | rubberband library |
-| `speex` | | speex support |
-| `srt` | | SRT library |
-| `tesseract` | | tesseract OCR engine |
-| `two-lame` | | two-lame support |
-| `wavpack` | | wavpack support |
-| `webp` | | libwebp to encode WEBP images |
-| `xvid` | | xvid support |
-| `zeromq` | | libzeromq to receive commands sent through a libzeromq client |
-| `zimg` | | z.lib zimg library |
+| Dependency | Description |
+| ---------- | ----------- |
+| `libaom` | AV1 encoder |
+| `fontconfig` | Font access library |
+| `freetype` | Freetype font engine |
+| `frei0r` | frei0r filters |
+| `lame` | LAME MP3 encoder |
+| `libass` | ASS subtitle support |
+| `libvorbis` | Vorbis encoder |
+| `libvpx` | VP8 and VP9 encoder |
+| `opus` | Opus encoder |
+| `rtmpdump` | RTMP dumping support |
+| `sdl2` | Simple DirectMedia Layer |
+| `snappy` | Snappy compression support |
+| `theora` | Theora encoder |
+| `x264` | x264 H.264 encoder |
+| `x265` | x265 HEVC encoder |
+| `xz` | XZ compression support |
+
+This formula features the following libraries optionally:
+
+| Dependency | Description | Remarks |
+| ---------- | ----------- | ------- |
+| `chromaprint` | Chromaprint audio fingerprinting library |
+| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed before running the FFmpeg formula.
+| `fdk-aac` | Fraunhofer FDK AAC library |
+| `game-music-emu` | game-music-emu support |
+| `libbluray` | libbluray support |
+| `libbs2b` | libbs2b support |
+| `libcaca` | libcaca support |
+| `libgsm` | libgsm support |
+| `libmodplug` | libmodplug support |
+| `librsvg` | SVG files as inputs via librsvg |
+| `libsoxr` | soxr resample library |
+| `libssh` | SFTP protocol via libssh |
+| `libvidstab` | vid.stab support for video stabilization |
+| `libvmaf` | VMAF video quality metric |
+| `libxml2` | libxml2 library |
+| `opencore-amr` | Opencore AMR NR/WB audio format |
+| `openh264` | OpenH264 library |
+| `openjpeg` | JPEG 2000 image format |
+| `openssl` | SSL support |
+| `rtmpdump` | rtmpdump support |
+| `rubberband` | rubberband library |
+| `speex` | speex support |
+| `srt` | SRT library |
+| `tesseract` | tesseract OCR engine |
+| `two-lame` | two-lame support |
+| `wavpack` | wavpack support |
+| `webp` | libwebp to encode WEBP images |
+| `xvid` | xvid support |
+| `zeromq` | libzeromq to receive commands sent through a libzeromq client |
+| `zimg` | z.lib zimg library |
 
 ## Issues
 
