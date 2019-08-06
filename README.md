@@ -98,7 +98,7 @@ This formula features the following libraries optionally:
 | Dependency | Description | Remarks |
 | ---------- | ----------- | ------- |
 | `chromaprint` | Chromaprint audio fingerprinting library |
-| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed before running the FFmpeg formula.
+| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed before running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | game-music-emu support |
 | `libbluray` | libbluray support |
