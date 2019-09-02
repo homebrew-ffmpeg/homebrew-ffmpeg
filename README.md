@@ -130,7 +130,7 @@ This formula features the following libraries optionally:
 
 ## Issues
 
-To report issues, please [file an issue on GitHub](https://github.com/varenc/homebrew-ffmpeg/issues). Please note that we will only be able to help with issues that are exclusive to this tap.
+To report issues, please [file an issue on GitHub](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues). Please note that we will only be able to help with issues that are exclusive to this tap.
 
 If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, please file it [on their tracker](https://github.com/Homebrew/homebrew-core/).
 
