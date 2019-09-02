@@ -18,8 +18,8 @@ In order to use this tap, you need to install Homebrew or Linuxbrew.
 Then, to run a default installation, run:
 
 ```
-brew tap varenc/ffmpeg
-brew install varenc/ffmpeg/ffmpeg
+brew tap homebrew-ffmpeg/ffmpeg
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
 
 **Note:** If you already have `ffmpeg` installed from Homebrew core, you will receive an error. You need to first run `brew uninstall ffmpeg` before you can use this tap.
@@ -29,13 +29,13 @@ brew install varenc/ffmpeg/ffmpeg
 To see the list of supported options for this formula, run:
 
 ```
-brew options varenc/ffmpeg/ffmpeg
+brew options homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
 
 Then, you can run:
 
 ```
-brew install varenc/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
 ```
 
 ### Installing latest Git version (`HEAD`)
@@ -43,7 +43,7 @@ brew install varenc/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
 
 ```
-brew install varenc/ffmpeg/ffmpeg --HEAD
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --HEAD
 ```
 
 ### Installing *everything*
@@ -51,7 +51,7 @@ brew install varenc/ffmpeg/ffmpeg --HEAD
 To compile and install ffmpeg with *all* options, just run:
 
 ```
-brew install varenc/ffmpeg/ffmpeg $(brew options varenc/ffmpeg/ffmpeg --compact)
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
 ```
 
 Note that this will perform a full build of ffmpeg and its dependencies, which may take a while depending on your machine's capabilities.
@@ -61,13 +61,13 @@ Note that this will perform a full build of ffmpeg and its dependencies, which m
 To update Homebrew and upgrade the formula to the most recent stable release:
 
 ```
-brew update && brew upgrade varenc/ffmpeg/ffmpeg
+brew update && brew upgrade homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
 
 Or, if you are using the `HEAD` version and want to update to the latest commit:
 
 ```
-brew update && brew upgrade varenc/ffmpeg/ffmpeg --fetch-HEAD
+brew update && brew upgrade homebrew-ffmpeg/ffmpeg/ffmpeg --fetch-HEAD
 ```
 
 ## Included libraries
@@ -136,6 +136,5 @@ If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, ple
 
 ## Maintainers
 
-- Chris Varenhorst (`@varenc`)
 - Reto Kromer (`@retokromer`)
 - Werner Robitza (`@slhck`)
