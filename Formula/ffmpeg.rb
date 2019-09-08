@@ -1,9 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
-  version "4.1.4-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz"
+  version "4.2.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   # This formula is for people that will compile with their chosen options
@@ -183,6 +183,15 @@ class Ffmpeg < Formula
         To add all supported languages, install the `tesseract-lang` formula.
       EOS
     end
+  end
+
+  def caveats; <<~EOS
+    This flavour of `ffmpeg` may conflict with `mpv`, because its last tag/release
+    is too old. You may instead use the `mpv` cask:
+      brew uninstall mpv
+      brew cask install mpv
+    which comes with an embedded FFmpeg 4.0.2 and works.
+  EOS
   end
 
   test do
