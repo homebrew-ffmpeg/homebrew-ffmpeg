@@ -46,16 +46,6 @@ FFmpeg recommends installing the latest Git master version over a release. This 
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --HEAD
 ```
 
-### Installing *everything*
-
-To compile and install ffmpeg with *all* options, just run:
-
-```
-brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
-```
-
-Note that this will perform a full build of ffmpeg and its dependencies, which may take a while depending on your machine's capabilities.
-
 ## Updating
 
 To update Homebrew and upgrade the formula to the most recent stable release:
