@@ -191,15 +191,6 @@ class Ffmpeg < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This flavour of `ffmpeg` may conflict with `mpv`, because its last tag/release
-    is too old. You may instead use the `mpv` cask:
-      brew uninstall mpv
-      brew cask install mpv
-    which comes with an embedded FFmpeg 4.0.2 and works.
-  EOS
-  end
-
   test do
     # Create an example mp4 file
     mp4out = testpath/"video.mp4"
