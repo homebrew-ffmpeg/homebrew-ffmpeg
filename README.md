@@ -6,7 +6,6 @@ Contents:
 
 - [Installation and usage](#installation-and-usage)
 - [Updating](#updating)
-- [FAQ](#faq)
 - [Included libraries](#included-libraries)
 - [Issues](#issues)
 - [Maintainers](#maintainers)
