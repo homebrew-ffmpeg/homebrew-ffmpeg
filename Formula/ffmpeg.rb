@@ -4,6 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
   version "4.2.2-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   # This formula is for people that will compile with their chosen options
@@ -73,7 +74,7 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "openssl" => :optional
+  depends_on "openssl@1.1" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
@@ -130,6 +131,7 @@ class Ffmpeg < Formula
     args << "--enable-libgsm" if build.with? "libgsm"
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
+    args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
@@ -166,12 +168,6 @@ class Ffmpeg < Formula
     if build.with? "opencore-amr"
       args << "--enable-libopencore-amrnb"
       args << "--enable-libopencore-amrwb"
-    end
-
-    if build.with? "openjpeg"
-      args << "--enable-libopenjpeg"
-      args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
     end
 
     system "./configure", *args
