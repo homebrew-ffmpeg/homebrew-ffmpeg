@@ -1,0 +1,54 @@
+language: ruby
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode11.3
+      rvm: 2.6
+    - os: linux
+      dist: xenial
+      rvm: 2.6
+  fast_finish: true
+
+env:
+  global:
+    - HOMEBREW_DEVELOPER=1
+    - HOMEBREW_VERBOSE=1
+    - HOMEBREW_NO_AUTO_UPDATE=1
+    - HOMEBREW_NO_INSTALL_CLEANUP=1
+
+before_install:
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+      export PATH="~/.linuxbrew/bin:~/.linuxbrew/sbin:$PATH";
+      export HOME=/home/linuxbrew;
+      export LINUXBREW=$HOME/.linuxbrew;
+      export HOMEBREW_FORCE_VENDOR_RUBY=1
+      sudo apt-get -qq update;
+      sudo mkdir $HOME;
+      sudo chown "$USER:" $HOME;
+      mkdir $LINUXBREW;
+      curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $LINUXBREW;
+    fi
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew unlink python@2; fi
+  - brew update || brew update
+  - gem install rubocop -v 0.50.0
+  - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
+  - mkdir -p $(brew --repo)/Library/Taps/homebrew-ffmpeg
+  - ln -s $PWD $(brew --repo)/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg
+  - cd $(brew --repo)/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg
+  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg"
+  - ulimit -n 1024
+  # Fix linux error: Incorrect file permissions (664)
+  - chmod 0644 Formula/*.rb
+  - umask 022
+
+script:
+  - brew install -v $TRAVIS_REPO_SLUG/ffmpeg
+  - brew postinstall $TRAVIS_REPO_SLUG/ffmpeg
+  - brew audit --except=file,specs $TRAVIS_REPO_SLUG/ffmpeg
+  - brew test $TRAVIS_REPO_SLUG/ffmpeg
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
