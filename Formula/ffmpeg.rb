@@ -161,9 +161,7 @@ class Ffmpeg < Formula
       args << "--extra-ldflags=-L#{HOMEBREW_PREFIX}/include"
     end
 
-    if build.with?("opencore-amr") || build.with?("libvmaf")
-      args << "--enable-version3"
-    end
+    args << "--enable-version3" if build.with?("opencore-amr") || build.with?("libvmaf")
 
     if build.with? "opencore-amr"
       args << "--enable-libopencore-amrnb"
