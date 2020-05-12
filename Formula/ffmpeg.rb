@@ -4,7 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
   version "4.2.2-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   # This formula is for people that will compile with their chosen options
