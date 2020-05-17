@@ -4,7 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
   version "4.2.2-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   # This formula is for people that will compile with their chosen options
@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
+  depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -100,6 +101,7 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
       --enable-gpl
       --enable-libaom
+      --enable-libdav1d
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
@@ -121,7 +123,7 @@ class Ffmpeg < Formula
       args << "--enable-videotoolbox"
     end
 
-    args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
+    args << "--disable-htmlpages"  # The same info is accessible through the man pages.
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
