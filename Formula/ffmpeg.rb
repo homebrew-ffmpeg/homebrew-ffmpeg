@@ -50,13 +50,7 @@ class Ffmpeg < Formula
   depends_on "x264"
   depends_on "x265"
   depends_on "xz"
-
-  unless OS.mac?
-    depends_on "zlib"
-    depends_on "bzip2"
-    depends_on "linuxbrew/xorg/libxv"
-  end
-
+  depends_on "linuxbrew/xorg/libxv" unless OS.mac?
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
@@ -86,6 +80,9 @@ class Ffmpeg < Formula
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     # Work around Xcode 11 clang bug
@@ -122,7 +119,7 @@ class Ffmpeg < Formula
       args << "--enable-videotoolbox"
     end
 
-    args << "--disable-htmlpages"  # The same info is accessible through the man pages.
+    args << "--disable-htmlpages" # The same info is accessible through the man pages.
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
