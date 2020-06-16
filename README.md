@@ -9,6 +9,7 @@ Contents:
 - [Installation and usage](#installation-and-usage)
 - [Updating](#updating)
 - [Included libraries](#included-libraries)
+- [Troubleshooting](#troubleshooting)
 - [Issues](#issues)
 - [Maintainers](#maintainers)
 
@@ -118,6 +119,23 @@ This formula features the following libraries optionally:
 | `xvid` | xvid support |
 | `zeromq` | libzeromq to receive commands sent through a libzeromq client |
 | `zimg` | z.lib zimg library |
+
+## Troubleshooting
+
+When installing a piece of SOFTWARE which is using this FFmpeg distribution, then you may get the following error:
+```
+==> Installing dependencies for SOFTWARE: ffmpeg
+Error: ffmpeg is already installed from homebrew-ffmpeg/ffmpeg!
+Please `brew uninstall ffmpeg` first."
+```
+
+Here is a workaround:
+```
+brew uninstall ffmpeg
+brew install SOFTWARE
+brew uninstall --ignore-dependencies ffmpeg
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
+```
 
 ## Issues
 
