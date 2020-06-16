@@ -134,7 +134,7 @@ Here is a workaround:
 brew uninstall ffmpeg
 brew install SOFTWARE
 brew uninstall --ignore-dependencies ffmpeg
-brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-YOUR-OPTIONS
 ```
 
 ## Issues
