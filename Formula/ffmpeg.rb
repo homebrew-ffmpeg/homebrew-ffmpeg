@@ -4,6 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-4.3.tar.xz"
   version "4.3-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "1d0ad06484f44bcb97eba5e93c40bcb893890f9f64aeb43e46cd9bb4cbd6795d"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -66,6 +67,7 @@ class Ffmpeg < Formula
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl@1.1" => :optional
+  depends_on "rav1e" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
@@ -123,6 +125,7 @@ class Ffmpeg < Formula
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
+    args << "--enable-librav1e" if build.with? "rav1e"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
