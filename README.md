@@ -108,6 +108,7 @@ This formula features the following libraries optionally:
 | `openh264` | OpenH264 library |
 | `openjpeg` | JPEG 2000 image format |
 | `openssl` | SSL support |
+| `rav1e` | AV1 encoding via librav1e |
 | `rtmpdump` | rtmpdump support |
 | `rubberband` | rubberband library |
 | `speex` | speex support |
