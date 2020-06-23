@@ -89,7 +89,7 @@ This formula features the following libraries optionally:
 
 | Dependency | Description | Remarks |
 | ---------- | ----------- | ------- |
-| `chromaprint` | Chromaprint audio fingerprinting library |
+| `chromaprint` | Chromaprint audio fingerprinting library | Workaround:<br>```brew uninstall ffmpeg```<br>```brew install chromaprint```<br>```brew uninstall --ignore-dependencies ffmpeg```<br>```brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint```
 | `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | game-music-emu support |
