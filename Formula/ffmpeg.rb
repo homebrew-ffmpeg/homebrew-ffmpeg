@@ -28,9 +28,9 @@ class Ffmpeg < Formula
   option "with-libvmaf", "Enable libvmaf scoring library"
   option "with-libxml2", "Enable libxml2 library"
 
-  depends_on "yasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
+  depends_on "yasm" => :build
 
   depends_on "aom"
   depends_on "dav1d"
