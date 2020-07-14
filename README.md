@@ -40,6 +40,12 @@ Then, you can run:
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
 ```
 
+If you **really** wish to install all the available options, you can run:
+
+```
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
+```
+
 ### Installing latest Git version (`HEAD`)
 
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
@@ -89,7 +95,7 @@ This formula features the following libraries optionally:
 
 | Dependency | Description | Remarks |
 | ---------- | ----------- | ------- |
-| `chromaprint` | Chromaprint audio fingerprinting library | Workaround:<br>```brew uninstall ffmpeg```<br>```brew install chromaprint```<br>```brew uninstall --ignore-dependencies ffmpeg```<br>```brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-chromaprint```
+| `chromaprint` | Chromaprint audio fingerprinting library | See the workaround in the [Troubleshooting](#troubleshooting) section.
 | `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | game-music-emu support |
