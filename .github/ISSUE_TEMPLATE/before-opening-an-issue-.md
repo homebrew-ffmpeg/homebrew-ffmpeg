@@ -1,12 +1,3 @@
----
-name: 'Before opening an issue:'
-about: 'Before opening an issue:'
-title: ''
-labels: ''
-assignees: ''
-
----
-
 **Please note that we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide all the requested information.**
 
 - [ ] ran `brew update` and can still reproduce the problem?
