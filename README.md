@@ -46,6 +46,8 @@ If you **really** wish to install all the available options, you can run:
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
 ```
 
+Note that this may install libraries for which you need extra SDKs installed, such as `--with-decklink`, or librairies which have to be installed before running the formula, such as `-with-chormaprint`.
+
 ### Installing latest Git version (`HEAD`)
 
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
@@ -146,7 +148,7 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-YOUR-OPTIONS
 
 ## Issues
 
-To report issues, please [file an issue on GitHub](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues). Please note that we will only be able to help with issues that are exclusive to this tap.
+To report issues, please [file an issue on GitHub](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues). Please note that we will only be able to help with issues that are exclusive to this tap and for OS which are officially supported.
 
 If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, please file it [on their tracker](https://github.com/Homebrew/homebrew-core/).
 
