@@ -46,7 +46,7 @@ If you **really** wish to install all the available options, you can run:
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
 ```
 
-Note that this may install libraries for which you need extra SDKs installed, such as `--with-decklink`, or librairies which have to be installed before running the formula, such as `-with-chormaprint`.
+Note that this may install libraries for which you need extra SDKs installed, such as `--with-decklink`, or libraries which have to be installed before running the formula, such as `--with-chromaprint`.
 
 ### Installing latest Git version (`HEAD`)
 
