@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/homebrew-ffmpeg/homebrew-ffmpeg.svg?branch=master)](https://travis-ci.com/homebrew-ffmpeg/homebrew-ffmpeg)
 
-This is a 3<sup>rd</sup> party tap for [Homebrew](http://brew.sh/). It provides a formula for `ffmpeg` which includes options for enabling additional features and libraries.
+This is a 3<sup>rd</sup> party tap for [Homebrew](https://brew.sh/). It provides a formula for `ffmpeg` which includes options for enabling additional features and libraries.
 
 Contents:
 
@@ -15,7 +15,7 @@ Contents:
 
 ## Installation and usage
 
-In order to use this tap, you need to install Homebrew or Linuxbrew.
+In order to use this tap, you need to install Homebrew.
 
 Then, to run a default installation, run:
 
