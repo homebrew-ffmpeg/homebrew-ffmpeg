@@ -107,6 +107,7 @@ class Ffmpeg < Formula
       --enable-libfreetype
       --enable-frei0r
       --enable-libass
+      --enable-demuxer=dash
       --disable-libjack
       --disable-indev=jack
     ]
