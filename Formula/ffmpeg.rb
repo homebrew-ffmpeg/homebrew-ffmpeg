@@ -171,7 +171,7 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
-    mv bin/"python", pkgshare/"python", :force => true
+    mv bin/"python", pkgshare/"python", force: true
 
     if build.with? "tesseract"
       opoo <<~EOS
