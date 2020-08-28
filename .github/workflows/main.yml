@@ -1,34 +1,18 @@
-name: brew test-bot
+name: GitHub Actions CI
 on:
-  pull_request:
   push:
     branches: master
-    
+  pull_request:
 jobs:
-  test-bot-mac:
-    runs-on: macos-latest
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
-        
-      - name: Run brew test-bot
-        run: |
-          set -e
-          brew update
-          brew test-bot
-          
-  test-bot-linux:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
 
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+    steps:
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Run brew test-bot
-        run: |
-          set -e
-          brew update
-          brew test-bot
+    - run: brew test-bot
