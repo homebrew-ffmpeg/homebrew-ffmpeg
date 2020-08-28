@@ -1,8 +1,9 @@
 name: brew test-bot
 on:
-  pull_request:
   push:
-    branches: master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
     
 jobs:
   test-bot-mac:
