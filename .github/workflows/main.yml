@@ -15,10 +15,6 @@ jobs:
         run: |
           set -e
           brew update
-          HOMEBREW_TAP_DIR="/usr/local/Homebrew/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg"
-          mkdir -p "$HOMEBREW_TAP_DIR"
-          rm -rf "$HOMEBREW_TAP_DIR"
-          ln -s "$PWD" "$HOMEBREW_TAP_DIR"
           brew test-bot
           
   test-bot-linux:
@@ -35,8 +31,4 @@ jobs:
         run: |
           set -e
           brew update
-          HOMEBREW_TAP_DIR="/usr/local/Homebrew/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg"
-          mkdir -p "$HOMEBREW_TAP_DIR"
-          rm -rf "$HOMEBREW_TAP_DIR"
-          ln -s "$PWD" "$HOMEBREW_TAP_DIR"
           brew test-bot
