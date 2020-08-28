@@ -1,0 +1,20 @@
+name: brew test-bot
+on:
+  push:
+    branches: master
+  pull_request: []
+jobs:
+  test-bot:
+    runs-on: macos-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Run brew test-bot
+        run: |
+          set -e
+          brew update
+          HOMEBREW_TAP_DIR="/usr/local/Homebrew/Library/Taps/homebrew-ffmpeg/homebrew-ffmpeg"
+          mkdir -p "$HOMEBREW_TAP_DIR"
+          rm -rf "$HOMEBREW_TAP_DIR"
+          ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+          brew test-bot
