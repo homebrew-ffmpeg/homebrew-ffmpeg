@@ -84,6 +84,7 @@ class Ffmpeg < Formula
   depends_on "zimg" => :optional
 
   uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
