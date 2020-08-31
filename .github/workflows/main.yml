@@ -14,7 +14,4 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Run tests
-      run: |
-        brew test-bot texi2html
-        brew test-bot
+    - run: brew test-bot
