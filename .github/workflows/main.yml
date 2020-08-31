@@ -4,6 +4,13 @@ on:
     branches: master
   pull_request:
 jobs:
+  cancel_previous_runs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: n1hility/cancel-previous-runs@v2
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
   tests:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -11,16 +18,7 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
 
     steps:
-    - name: Cancel previous runs
-      if: matrix.os == 'ubuntu-latest'
-      uses: Homebrew/actions/cancel-previous-runs@master
-      with:
-        workflow: 'main.yml'
-        event: pull_request
-
     - name: Set up Homebrew
-      if: ${{ success() || failure() }}
       uses: Homebrew/actions/setup-homebrew@master
 
-    - run: brew test-bot perl
-      if: ${{ success() || failure() }}
+    - run: brew test-bot
