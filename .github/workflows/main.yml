@@ -21,4 +21,4 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - run: brew test-bot
+    - run: brew test-bot perl
