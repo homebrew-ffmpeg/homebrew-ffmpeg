@@ -23,3 +23,4 @@ jobs:
       uses: Homebrew/actions/setup-homebrew@master
 
     - run: brew test-bot perl
+      if: ${{ success() || failure() }}
