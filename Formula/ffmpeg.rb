@@ -30,6 +30,7 @@ class Ffmpeg < Formula
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
+  depends_on "texinfo" => :build
 
   depends_on "aom"
   depends_on "dav1d"
