@@ -11,6 +11,12 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
 
     steps:
+    - name: Cancel previous runs
+      uses: Homebrew/actions/cancel-previous-runs@master
+      with:
+        workflow: ${{ github.workflow }}
+        event: pull_request
+
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
