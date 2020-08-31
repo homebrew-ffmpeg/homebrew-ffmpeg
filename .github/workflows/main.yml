@@ -6,7 +6,7 @@ on:
     
 jobs:
   cancel_previous_runs:
-    if: github.event == 'pull_request'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: n1hility/cancel-previous-runs@v2
