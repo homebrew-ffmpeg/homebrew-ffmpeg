@@ -11,11 +11,15 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
 
     steps:
+    - name: Get workflow_id
+      id: get_workflow_id
+      run: echo "::set-output name=workflow_id::{{workflow.uid}}"
+      
     - name: Cancel previous runs
       if: matrix.os == 'ubuntu-latest'
       uses: Homebrew/actions/cancel-previous-runs@master
       with:
-        workflow: "{{workflow.uid}}"
+        workflow: ${{ steps.get_workflow_id.outputs.workflow_id }}
         event: pull_request
 
     - name: Set up Homebrew
