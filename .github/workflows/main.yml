@@ -19,6 +19,7 @@ jobs:
         event: pull_request
 
     - name: Set up Homebrew
+      if: succeeded() || failed()
       uses: Homebrew/actions/setup-homebrew@master
 
     - run: brew test-bot perl
