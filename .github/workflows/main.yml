@@ -14,7 +14,7 @@ jobs:
     - name: Cancel previous runs
       uses: Homebrew/actions/cancel-previous-runs@master
       with:
-        workflow: ${{ github.workflow }}
+        workflow: "{{ workflow.uid }}"
         event: pull_request
 
     - name: Set up Homebrew
