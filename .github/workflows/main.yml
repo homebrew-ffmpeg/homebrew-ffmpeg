@@ -12,9 +12,10 @@ jobs:
 
     steps:
     - name: Cancel previous runs
+      if: matrix.os == ubuntu-latest
       uses: Homebrew/actions/cancel-previous-runs@master
       with:
-        workflow: "{{ workflow.uid }}"
+        workflow: "{{workflow.uid}}"
         event: pull_request
 
     - name: Set up Homebrew
