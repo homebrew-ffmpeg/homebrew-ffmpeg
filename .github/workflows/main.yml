@@ -12,7 +12,9 @@ jobs:
 
     steps:
     - name: Set up Homebrew
-      id: set-up-homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - run: sudo env "PATH=$PATH" brew test-bot
+    - name: Run tests
+      run: |
+        brew test-bot texi2html
+        brew test-bot
