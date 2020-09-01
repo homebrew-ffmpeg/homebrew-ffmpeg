@@ -22,5 +22,9 @@ jobs:
     steps:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
+      
+    - name: Linux edgecase
+      if: matrix.os == 'ubuntu-latest'
+      run: brew reinstall -s perl  # https://github.com/Homebrew/linuxbrew-core/issues/4808
 
     - run: brew test-bot
