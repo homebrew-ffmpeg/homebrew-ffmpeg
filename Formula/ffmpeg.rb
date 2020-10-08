@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "4.3.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -50,8 +50,6 @@ class Ffmpeg < Formula
   depends_on "x264"
   depends_on "x265"
   depends_on "xz"
-
-  depends_on "linuxbrew/xorg/libxv" unless OS.mac?
 
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
