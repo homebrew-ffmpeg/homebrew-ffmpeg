@@ -51,8 +51,6 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xz"
 
-  depends_on "linuxbrew/xorg/libxv" unless OS.mac?
-
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "libbluray" => :optional
