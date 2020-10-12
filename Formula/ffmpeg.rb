@@ -5,12 +5,13 @@ class Ffmpeg < Formula
   version "4.3.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
+  option "with-game-music-emu", "Enable Game Music Emu (GME) support"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
