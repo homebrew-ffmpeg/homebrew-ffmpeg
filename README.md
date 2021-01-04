@@ -56,6 +56,8 @@ FFmpeg recommends installing the latest Git master version over a release. This 
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --HEAD
 ```
 
+Please note that we don't generally provide support `HEAD` builds, since they may cause issues with other Homebrew-supplied formulae.
+
 ## Updating
 
 To update Homebrew and upgrade the formula to the most recent stable release:
@@ -130,6 +132,8 @@ This formula features the following libraries optionally:
 | `zimg` | z.lib zimg library |
 
 ## Troubleshooting
+
+In general, please note that we only provide support for current macOS versions that still receive security updates. Beta or pre-release versions as well as legacy versions are not supported.
 
 When installing a piece of SOFTWARE which is using this FFmpeg distribution, then you may get the following error:
 ```
