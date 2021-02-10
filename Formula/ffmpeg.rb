@@ -2,7 +2,7 @@ class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
   license "GPL-2.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   stable do
@@ -94,6 +94,10 @@ class Ffmpeg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libxv"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -121,7 +125,7 @@ class Ffmpeg < Formula
       --disable-indev=jack
     ]
 
-    if OS.mac?
+    on_macos do
       args << "--enable-opencl"
       args << "--enable-videotoolbox"
     end
