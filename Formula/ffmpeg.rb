@@ -6,7 +6,7 @@ class Ffmpeg < Formula
   sha256 "46e4e64f1dd0233cbc0934b9f1c0da676008cad34725113fb7f802cfa84ccddb"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git"
-  
+
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
