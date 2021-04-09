@@ -125,7 +125,6 @@ This formula features the following libraries optionally:
 | `srt` | SRT library |
 | `tesseract` | tesseract OCR engine |
 | `two-lame` | two-lame support |
-| `wavpack` | wavpack support |
 | `webp` | libwebp to encode WEBP images |
 | `xvid` | xvid support |
 | `zeromq` | libzeromq to receive commands sent through a libzeromq client |
