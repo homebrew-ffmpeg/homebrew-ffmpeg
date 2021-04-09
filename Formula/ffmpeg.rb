@@ -75,7 +75,6 @@ class Ffmpeg < Formula
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
-  depends_on "wavpack" => :optional
   depends_on "webp" => :optional
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
@@ -143,7 +142,6 @@ class Ffmpeg < Formula
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libvmaf" if build.with? "libvmaf"
-    args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libxml2" if build.with? "libxml2"
     args << "--enable-libxvid" if build.with? "xvid"
