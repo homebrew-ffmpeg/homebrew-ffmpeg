@@ -1,6 +1,6 @@
 # homebrew-ffmpeg
 
-[![Build Status](https://travis-ci.com/homebrew-ffmpeg/homebrew-ffmpeg.svg?branch=master)](https://travis-ci.com/homebrew-ffmpeg/homebrew-ffmpeg)
+[![GH Actions CI](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml/badge.svg)](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml)
 
 This is a 3<sup>rd</sup> party tap for [Homebrew](https://brew.sh/). It provides a formula for `ffmpeg` which includes options for enabling additional features and libraries.
 
