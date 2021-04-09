@@ -1,9 +1,14 @@
 name: GitHub Actions CI
+
 on:
   push:
     branches: master
   pull_request:
-    
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
 jobs:
   cancel_previous_runs:
     if: github.event_name == 'pull_request'
@@ -23,4 +28,4 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - run: brew test-bot --skip-recursive-dependents
+    - run: brew test-bot --skip-recursive-dependents Formula/ffmpeg.rb
