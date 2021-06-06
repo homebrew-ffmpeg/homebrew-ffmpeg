@@ -100,7 +100,7 @@ This formula features the following libraries optionally:
 | Dependency | Description | Remarks |
 | ---------- | ----------- | ------- |
 | `chromaprint` | Chromaprint audio fingerprinting library | See the workaround in the [Troubleshooting](#troubleshooting) section.
-| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```
+| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837).
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | Enable Game Music Emu (GME) support |
 | `libbluray` | libbluray support |
