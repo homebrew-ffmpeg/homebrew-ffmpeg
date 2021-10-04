@@ -103,6 +103,7 @@ This formula features the following libraries optionally:
 | `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837).
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | Enable Game Music Emu (GME) support |
+| `jack` | Jack audio device support |
 | `libbluray` | libbluray support |
 | `libbs2b` | libbs2b support |
 | `libcaca` | libcaca support |
