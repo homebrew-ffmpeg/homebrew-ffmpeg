@@ -115,7 +115,7 @@ class Ffmpeg < Formula
       --disable-indev=jack
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-opencl"
       args << "--enable-videotoolbox"
     end
