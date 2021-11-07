@@ -109,6 +109,7 @@ This formula features the following libraries optionally:
 | `libcaca` | libcaca support |
 | `libgsm` | libgsm support |
 | `libmodplug` | libmodplug support |
+| `librist` | RIST support |
 | `librsvg` | SVG files as inputs via librsvg |
 | `libsoxr` | soxr resample library |
 | `libssh` | SFTP protocol via libssh |
