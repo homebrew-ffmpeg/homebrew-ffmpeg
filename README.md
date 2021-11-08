@@ -84,7 +84,6 @@ This formula installs the following libraries by default:
 | `frei0r` | frei0r filters |
 | `lame` | LAME MP3 encoder |
 | `libass` | ASS subtitle support |
-| `libvmaf` | VMAF support |
 | `libvorbis` | Vorbis encoder |
 | `libvpx` | VP8 and VP9 encoder |
 | `opus` | Opus encoder |
