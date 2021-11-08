@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "4.4.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -44,6 +44,7 @@ class Ffmpeg < Formula
   depends_on "frei0r"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libvmaf"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
@@ -106,6 +107,7 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-libsnappy
       --enable-libtheora
+      --enable-libvmaf
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
@@ -174,6 +176,13 @@ class Ffmpeg < Formula
     if build.with? "opencore-amr"
       args << "--enable-libopencore-amrnb"
       args << "--enable-libopencore-amrwb"
+    end
+
+    # Replace hardcoded default VMAF model path
+    %w[doc/filters.texi libavfilter/vf_libvmaf.c].each do |f|
+      inreplace f, "/usr/local/share/model", HOMEBREW_PREFIX/"share/libvmaf/model"
+      # Since libvmaf v2.0.0, `.pkl` model files have been deprecated in favor of `.json` model files.
+      inreplace f, "vmaf_v0.6.1.pkl", "vmaf_v0.6.1.json"
     end
 
     system "./configure", *args
