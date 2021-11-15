@@ -108,7 +108,8 @@ This formula features the following libraries optionally:
 | `libbs2b` | libbs2b support |
 | `libcaca` | libcaca support |
 | `libgsm` | libgsm support |
-| `libmodplug` | libmodplug support |
+| `libmodplug` | Enable module/tracker files as inputs via libmodplug |
+| `libopenmpt` | Enable module/tracker files as inputs via libopenmpt |
 | `librist` | RIST support |
 | `librsvg` | SVG files as inputs via librsvg |
 | `libsoxr` | soxr resample library |
