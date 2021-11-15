@@ -1,18 +1,21 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.tar.xz"
-  version "4.4-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz"
+  version "4.4.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02"
   license "GPL-2.0-or-later"
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
+  option "with-jack", "Enable Jack support"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
+  option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
@@ -55,12 +58,14 @@ class Ffmpeg < Formula
 
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
+  depends_on "jack" => :optional
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
+  depends_on "librist" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
@@ -104,6 +109,7 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-libsnappy
       --enable-libtheora
+      --enable-libvmaf
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
@@ -113,11 +119,9 @@ class Ffmpeg < Formula
       --enable-frei0r
       --enable-libass
       --enable-demuxer=dash
-      --disable-libjack
-      --disable-indev=jack
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-opencl"
       args << "--enable-videotoolbox"
     end
@@ -135,6 +139,7 @@ class Ffmpeg < Formula
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
     args << "--enable-librav1e" if build.with? "rav1e"
+    args << "--enable-librist" if build.with? "librist"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
@@ -163,11 +168,26 @@ class Ffmpeg < Formula
       args << "--extra-ldflags=-L#{HOMEBREW_PREFIX}/include"
     end
 
+    if build.with? "jack"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
+      args << "--enable-libjack"
+      args << "--enable-indev=jack"
+    end
+
     args << "--enable-version3" if build.with?("opencore-amr") || build.with?("libvmaf")
 
     if build.with? "opencore-amr"
       args << "--enable-libopencore-amrnb"
       args << "--enable-libopencore-amrwb"
+    end
+
+    if build.with? "libvmaf"
+      # Replace hardcoded default VMAF model path
+      %w[doc/filters.texi libavfilter/vf_libvmaf.c].each do |f|
+        inreplace f, "/usr/local/share/model", HOMEBREW_PREFIX/"share/libvmaf/model"
+        # Since libvmaf v2.0.0, `.pkl` model files have been deprecated in favor of `.json` model files.
+        inreplace f, "vmaf_v0.6.1.pkl", "vmaf_v0.6.1.json"
+      end
     end
 
     system "./configure", *args
