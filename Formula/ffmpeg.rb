@@ -8,6 +8,16 @@ class Ffmpeg < Formula
   revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
+  option "with-libaom", "Enable AV1 video streams"
+  option "with-libdav1d", "Enable AV1 decoder"
+  option "with-libfontconfig", "Enable fontconfig"
+  option "with-libfreetype", "Enable freetype fonts"
+  option "with-frei0r", "Enable video effecs"
+  option "with-libass", "Enable renderer for the ASS/SSA subtitle format"
+  option "with-libvorbis", "Enable vorbis audio codec"
+  option "with-libopus", "Enable opus audio codec"
+  option "with-libtheora", "Enable theora video codec"
+
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
@@ -39,22 +49,23 @@ class Ffmpeg < Formula
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
 
-  depends_on "aom"
-  depends_on "dav1d"
-  depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "frei0r"
   depends_on "lame"
-  depends_on "libass"
-  depends_on "libvorbis"
   depends_on "libvpx"
-  depends_on "opus"
   depends_on "sdl2"
   depends_on "snappy"
-  depends_on "theora"
   depends_on "x264"
   depends_on "x265"
   depends_on "xz"
+
+  depends_on "aom" => :optional
+  depends_on "dav1d" => :optional
+  depends_on "fontconfig" => :optional
+  depends_on "freetype" => :optional
+  depends_on "frei0r" => :optional
+  depends_on "libass" => :optional
+  depends_on "libvorbis" => :optional
+  depends_on "opus" => :optional
+  depends_on "theora" => :optional
 
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
@@ -103,21 +114,11 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-gpl
-      --enable-libaom
-      --enable-libdav1d
       --enable-libmp3lame
-      --enable-libopus
       --enable-libsnappy
-      --enable-libtheora
-      --enable-libvmaf
-      --enable-libvorbis
       --enable-libvpx
       --enable-libx264
       --enable-libx265
-      --enable-libfontconfig
-      --enable-libfreetype
-      --enable-frei0r
-      --enable-libass
       --enable-demuxer=dash
     ]
 
@@ -128,6 +129,18 @@ class Ffmpeg < Formula
     end
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
+
+    args << "--enable-libaom" if build.with? "libaom"
+    args << "--enable-libdav1d" if build.with? "libdav1d"
+    args << "--enable-libopus" if build.with? "libopus"
+    args << "--enable-libtheora" if build.with? "libtheora"
+    args << "--enable-libvorbis" if build.with? "libvorbis"
+    args << "--enable-libfontconfig" if build.with? "libfontconfig"
+    args << "--enable-libfreetype" if build.with? "libfreetype"
+    args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libass" if build.with? "libass"
+    args << "--enable-libvmaf" if build.with? "libvmaf"
+
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
