@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "5.0-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
