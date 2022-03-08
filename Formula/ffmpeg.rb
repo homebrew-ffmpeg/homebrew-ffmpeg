@@ -191,6 +191,7 @@ class Ffmpeg < Formula
       end
     end
 
+    system "mv", "VERSION", "VERSION.txt"
     system "./configure", *args
     system "make", "install"
 
