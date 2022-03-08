@@ -167,6 +167,7 @@ class Ffmpeg < Formula
       args << "--enable-decklink"
       args << "--extra-cflags=-I#{HOMEBREW_PREFIX}/include"
       args << "--extra-ldflags=-L#{HOMEBREW_PREFIX}/include"
+      system "mv", "VERSION", "VERSION.txt"
     end
 
     if build.with? "jack"
@@ -191,7 +192,6 @@ class Ffmpeg < Formula
       end
     end
 
-    system "mv", "VERSION", "VERSION.txt"
     system "./configure", *args
     system "make", "install"
 
