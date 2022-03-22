@@ -109,7 +109,6 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-libsnappy
       --enable-libtheora
-      --enable-libvmaf
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
