@@ -121,6 +121,7 @@ class Ffmpeg < Formula
 
     if OS.mac?
       args << "--enable-opencl"
+      args << "--enable-audiotoolbox"
       args << "--enable-videotoolbox"
       args << "--enable-neon" if Hardware::CPU.arm?
     end
