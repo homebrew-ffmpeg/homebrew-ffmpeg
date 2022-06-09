@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "5.0.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "ef2efae259ce80a240de48ec85ecb062cecca26e4352ffb3fda562c21a93007b"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -34,6 +34,7 @@ class Ffmpeg < Formula
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
   option "with-libxml2", "Enable libxml2 library"
+  option "with-libzvbi", "Enable decoding of DVB teletext pages and DVB teletext subtitles"
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
@@ -156,6 +157,7 @@ class Ffmpeg < Formula
     args << "--enable-libxml2" if build.with? "libxml2"
     args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
+    args << "--enable-libzvbi" if build.with? "libzvbi"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
 
