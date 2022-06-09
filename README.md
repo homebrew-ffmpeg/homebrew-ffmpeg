@@ -117,6 +117,7 @@ This formula features the following libraries optionally:
 | `libvidstab` | vid.stab support for video stabilization |
 | `libvmaf` | VMAF video quality metric |
 | `libxml2` | libxml2 library |
+| `libzvbi` | Enable decoding of DVB teletext pages and DVB teletext subtitles |
 | `opencore-amr` | Opencore AMR NR/WB audio format |
 | `openh264` | OpenH264 library |
 | `openjpeg` | JPEG 2000 image format |
