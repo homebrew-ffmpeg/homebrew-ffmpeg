@@ -117,7 +117,7 @@ This formula features the following libraries optionally:
 | `libvidstab` | vid.stab support for video stabilization |
 | `libvmaf` | VMAF video quality metric |
 | `libxml2` | libxml2 library |
-| `libzvbi` | Enable decoding of DVB teletext pages and DVB teletext subtitles |
+| `libzvbi` | Enable decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula.
 | `opencore-amr` | Opencore AMR NR/WB audio format |
 | `openh264` | OpenH264 library |
 | `openjpeg` | JPEG 2000 image format |
