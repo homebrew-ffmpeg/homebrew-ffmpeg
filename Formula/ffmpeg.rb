@@ -93,7 +93,7 @@ class Ffmpeg < Formula
 
   on_linux do
     depends_on "libxv"
-    depends_on "gcc" if build.with? "rubberband"
+    depends_on "gcc" => :optional
   end
 
   def install
