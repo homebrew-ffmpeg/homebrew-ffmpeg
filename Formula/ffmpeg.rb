@@ -178,6 +178,11 @@ class Ffmpeg < Formula
       args << "--enable-indev=jack"
     end
 
+    if build.with? "zvbi"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["zvbi"].opt_lib/"pkgconfig"
+      args << "--enable-libzvbi"
+    end
+
     args << "--enable-version3" if build.with?("opencore-amr") || build.with?("libvmaf")
 
     if build.with? "opencore-amr"
