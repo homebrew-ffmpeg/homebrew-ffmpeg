@@ -20,8 +20,8 @@ In order to use this tap, you need to install Homebrew.
 Then, to run a default installation, run:
 
 ```
-brew tap homebrew-ffmpeg/ffmpeg
-brew install homebrew-ffmpeg/ffmpeg/ffmpeg
+brew tap tunein/ffmpeg
+brew install tunein/ffmpeg/ffmpeg --with-fdk-aac --with-openssl
 ```
 
 **Note:** If you already have `ffmpeg` installed from Homebrew core, you will receive an error. You need to first run `brew uninstall ffmpeg` before you can use this tap.
