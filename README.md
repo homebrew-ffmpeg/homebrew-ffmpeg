@@ -161,5 +161,4 @@ If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, ple
 
 ## Maintainers
 
-- Reto Kromer (`@retokromer`)
-- Werner Robitza (`@slhck`)
+- TuneIn's FNS Team, including `@nathan-cormier`
