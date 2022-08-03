@@ -155,7 +155,7 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-YOUR-OPTIONS
 
 ## Issues
 
-To report issues, please [file an issue on GitHub](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues). Please include the full command line you have tested and the full terminal output you got with. Please note that we will only be able to help with issues that are exclusive to this tap and for OS which are officially supported.
+To report issues, please ping the FNS team in `#fieldnstream`.
 
 If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, please file it [on their tracker](https://github.com/Homebrew/homebrew-core/).
 
