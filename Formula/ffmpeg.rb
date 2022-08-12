@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "5.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "55eb6aab5ee235550fa54a33eaf8bf1b4ec66c01453182b12f6a993d75698b03"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -78,11 +78,11 @@ class Ffmpeg < Formula
   depends_on "openjpeg" => :optional
   depends_on "openssl@1.1" => :optional
   depends_on "rav1e" => :optional
-  depends_on "svt-av1" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
   depends_on "srt" => :optional
+  depends_on "svt-av1" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
   depends_on "webp" => :optional
