@@ -123,6 +123,7 @@ This formula features the following libraries optionally:
 | `openjpeg` | JPEG 2000 image format |
 | `openssl` | SSL support |
 | `rav1e` | AV1 encoding via librav1e |
+| `svt-av1` | AV1 encoding via libsvt-av1 |
 | `rtmpdump` | rtmpdump support |
 | `rubberband` | rubberband library |
 | `speex` | speex support |
