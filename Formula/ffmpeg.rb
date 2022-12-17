@@ -5,6 +5,7 @@ class Ffmpeg < Formula
   version "5.1.2-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "619e706d662c8420859832ddc259cd4d4096a48a2ce1eefd052db9e440eef3dc"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -12,6 +13,7 @@ class Ffmpeg < Formula
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
   option "with-jack", "Enable Jack support"
+  option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
@@ -36,7 +38,6 @@ class Ffmpeg < Formula
   option "with-libxml2", "Enable libxml2 library"
   option "with-libzvbi", "Enable decoding of DVB teletext pages and DVB teletext subtitles"
 
-  depends_on "nasm" => :build
   depends_on "pkg-config" => :build
 
   depends_on "aom"
@@ -56,6 +57,7 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xz"
 
+  depends_on "aribb24" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "jack" => :optional
@@ -98,6 +100,12 @@ class Ffmpeg < Formula
     depends_on "gcc" => :optional
   end
 
+  on_intel do
+    depends_on "nasm" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -132,6 +140,7 @@ class Ffmpeg < Formula
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
     args << "--enable-chromaprint" if build.with? "chromaprint"
+    args << "--enable-libaribb24" if build.with? "libaribb24"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
