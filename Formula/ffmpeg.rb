@@ -27,7 +27,7 @@ class Ffmpeg < Formula
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
   option "with-rav1e", "Enable AV1 encoding via librav1e"
-  option "with-svt-av1", "Enable AV1 encoding via libsvtav1"
+  option "with-svt-av1", "Enable Scalable Video Technology for AV1"
   option "with-rtmpdump", "Enable RTMP dumping support"
   option "with-rubberband", "Enable rubberband library"
   option "with-webp", "Enable using libwebp to encode WEBP images"
