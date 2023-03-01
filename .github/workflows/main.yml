@@ -28,4 +28,4 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - run: brew test-bot --skip-recursive-dependents Formula/ffmpeg.rb
+    - run: brew test-bot --skip-recursive-dependents
