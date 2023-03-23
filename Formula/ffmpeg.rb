@@ -5,6 +5,7 @@ class Ffmpeg < Formula
   version "6.0-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -15,6 +16,7 @@ class Ffmpeg < Formula
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
+  option "with-libplacebo", "Enable GPU-accelerated image/video processing primitives"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
@@ -65,6 +67,7 @@ class Ffmpeg < Formula
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
+  depends_on "libplacebo" => :optional
   depends_on "libopenmpt" => :optional
   depends_on "librist" => :optional
   depends_on "librsvg" => :optional
@@ -192,6 +195,11 @@ class Ffmpeg < Formula
     if build.with? "libzvbi"
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["zvbi"].opt_lib/"pkgconfig"
       args << "--enable-libzvbi"
+    end
+
+    if build.with? "libplacebo"
+      args << "--enable-libplacebo"
+      args << "--enable-vulkan"
     end
 
     args << "--enable-version3" if build.with?("opencore-amr") || build.with?("libvmaf")

@@ -111,6 +111,7 @@ This formula features the following libraries optionally:
 | `libgsm` | libgsm support |
 | `libmodplug` | Enable module/tracker files as inputs via libmodplug |
 | `libopenmpt` | Enable module/tracker files as inputs via libopenmpt |
+| `libplacebo` | Enable GPU-accelerated image/video processing primitives |
 | `librist` | RIST support |
 | `librsvg` | SVG files as inputs via librsvg |
 | `libsoxr` | soxr resample library |
@@ -141,6 +142,7 @@ This formula features the following libraries optionally:
 In general, please note that we only provide support for current macOS versions that still receive security updates. Beta or pre-release versions as well as legacy versions are not supported.
 
 When installing a piece of SOFTWARE which is using this FFmpeg distribution, then you may get the following error:
+
 ```
 ==> Installing dependencies for SOFTWARE: ffmpeg
 Error: ffmpeg is already installed from homebrew-ffmpeg/ffmpeg!
@@ -148,6 +150,7 @@ Please `brew uninstall ffmpeg` first."
 ```
 
 Here is a workaround:
+
 ```
 brew uninstall ffmpeg
 brew install SOFTWARE
