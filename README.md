@@ -104,6 +104,7 @@ This formula features the following libraries optionally:
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | Enable Game Music Emu (GME) support |
 | `jack` | Jack audio device support |
+| `libaribb24` | Enable decoding ARIB/ISDB captions |
 | `libbluray` | libbluray support |
 | `libbs2b` | libbs2b support |
 | `libcaca` | libcaca support |
@@ -123,6 +124,7 @@ This formula features the following libraries optionally:
 | `openjpeg` | JPEG 2000 image format |
 | `openssl` | SSL support |
 | `rav1e` | AV1 encoding via librav1e |
+| `svt-av1` | Scalable Video Technology for AV1 (encoder and decoder) |
 | `rtmpdump` | rtmpdump support |
 | `rubberband` | rubberband library |
 | `speex` | speex support |
