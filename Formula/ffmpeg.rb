@@ -65,7 +65,6 @@ class Ffmpeg < Formula
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
-  depends_on "libflite" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
