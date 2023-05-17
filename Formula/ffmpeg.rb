@@ -146,7 +146,7 @@ class Ffmpeg < Formula
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
-    args << "--enable-libflite" if built.with? "libflite"
+    args << "--enable-libflite" if build.with? "libflite"
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
     args << "--enable-libmodplug" if build.with? "libmodplug"
