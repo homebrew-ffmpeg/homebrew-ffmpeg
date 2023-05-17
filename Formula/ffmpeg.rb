@@ -5,11 +5,13 @@ class Ffmpeg < Formula
   version "6.0-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
+  option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
   option "with-jack", "Enable Jack support"
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
@@ -63,6 +65,7 @@ class Ffmpeg < Formula
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
+  depends_on "libflite" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
@@ -144,6 +147,7 @@ class Ffmpeg < Formula
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
+    args << "--enable-libflite" if built.with? "libflite"
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
     args << "--enable-libmodplug" if build.with? "libmodplug"
