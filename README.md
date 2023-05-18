@@ -108,7 +108,7 @@ This formula features the following libraries optionally:
 | `libbluray` | libbluray support |
 | `libbs2b` | libbs2b support |
 | `libcaca` | libcaca support |
-| `libflite` | Enable text to speech synthesis support via Flite |
+| `libflite` | Enable text to speech synthesis support via Flite | Flite has to be installed **before** running the FFmpeg formula.
 | `libgsm` | libgsm support |
 | `libmodplug` | Enable module/tracker files as inputs via libmodplug |
 | `libopenmpt` | Enable module/tracker files as inputs via libopenmpt |
