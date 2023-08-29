@@ -169,7 +169,7 @@ class Ffmpeg < Formula
     args << "--enable-libflite" if build.with? "libflite"
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
-    args << "--enable-libjxl" if build.with? "jpeg-xl"    
+    args << "--enable-libjxl" if build.with? "jpeg-xl"
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
