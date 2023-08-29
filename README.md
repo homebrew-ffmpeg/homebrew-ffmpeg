@@ -104,6 +104,7 @@ This formula features the following libraries optionally:
 | `fdk-aac` | Fraunhofer FDK AAC library |
 | `game-music-emu` | Enable Game Music Emu (GME) support |
 | `jack` | Jack audio device support |
+| `jpeg-xl` | JPEG XL support |
 | `libaribb24` | Enable decoding ARIB/ISDB captions |
 | `libbluray` | libbluray support |
 | `libbs2b` | libbs2b support |
