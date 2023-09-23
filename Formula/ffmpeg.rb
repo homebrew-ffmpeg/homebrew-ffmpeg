@@ -72,6 +72,7 @@ class Ffmpeg < Formula
   depends_on "xz"
 
   depends_on "aribb24" => :optional
+  depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "jack" => :optional
