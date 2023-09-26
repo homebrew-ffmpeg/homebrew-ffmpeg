@@ -128,6 +128,10 @@ class Ffmpeg < Formula
     sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
   end
 
+  # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+  # libunwind due to it being present in a library search path.
+  ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
+
   def install
     args = %W[
       --prefix=#{prefix}
