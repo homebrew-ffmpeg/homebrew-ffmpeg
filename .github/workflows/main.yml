@@ -2,6 +2,9 @@ name: GitHub Actions CI
 
 on:
   pull_request:
+  push:
+    branches:
+      - master
 
 env:
   HOMEBREW_DEVELOPER: 1
@@ -13,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: n1hility/cancel-previous-runs@v2
-        with: 
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        
+
   tests:
     runs-on: ${{ matrix.os }}
     strategy:
