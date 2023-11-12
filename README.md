@@ -107,6 +107,7 @@ This formula features the following libraries optionally:
 | `game-music-emu` | Enable Game Music Emu (GME) support                              |
 | `jack`           | Jack audio device support                                        |
 | `jpeg-xl`        | JPEG XL support                                                  |
+| `libaribcaption` | Enable handling of ARIB STD-B24 based broadcast captions         |
 | `libaribb24`     | Enable decoding ARIB/ISDB captions                               |
 | `libbluray`      | libbluray support                                                |
 | `libbs2b`        | libbs2b support                                                  |
