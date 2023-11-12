@@ -21,7 +21,7 @@ In order to use this tap, you need to install Homebrew.
 
 Then, to run a default installation, run:
 
-```
+```bash
 brew tap homebrew-ffmpeg/ffmpeg
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
@@ -32,19 +32,19 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg
 
 To see the list of supported options for this formula, run:
 
-```
+```bash
 brew options homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
 
 Then, you can run:
 
-```
+```bash
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-<option1> --with-<option2> ...
 ```
 
 If you **really** wish to install all the available options, you can run:
 
-```
+```bash
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact)
 ```
 
@@ -54,7 +54,7 @@ Note that this may install libraries for which you need extra SDKs installed, su
 
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
 
-```
+```bash
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --HEAD
 ```
 
@@ -64,13 +64,13 @@ Please note that we don't generally provide support `HEAD` builds, since they ma
 
 To update Homebrew and upgrade the formula to the most recent stable release:
 
-```
+```bash
 brew update && brew upgrade homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
 
 Or, if you are using the `HEAD` version and want to update to the latest commit:
 
-```
+```bash
 brew update && brew upgrade homebrew-ffmpeg/ffmpeg/ffmpeg --fetch-HEAD
 ```
 
@@ -78,81 +78,83 @@ brew update && brew upgrade homebrew-ffmpeg/ffmpeg/ffmpeg --fetch-HEAD
 
 This formula installs the following libraries by default:
 
-| Dependency | Description |
-| ---------- | ----------- |
-| `libaom` | AV1 encoder |
-| `fontconfig` | Font access library |
-| `freetype` | Freetype font engine |
-| `frei0r` | frei0r filters |
-| `lame` | LAME MP3 encoder |
-| `libass` | ASS subtitle support |
-| `libvorbis` | Vorbis encoder |
-| `libvpx` | VP8 and VP9 encoder |
-| `opus` | Opus encoder |
-| `rtmpdump` | RTMP dumping support |
-| `sdl2` | Simple DirectMedia Layer |
-| `snappy` | Snappy compression support |
-| `theora` | Theora encoder |
-| `x264` | x264 H.264 encoder |
-| `x265` | x265 HEVC encoder |
-| `xz` | XZ compression support |
+| Dependency   | Description                |
+| ------------ | -------------------------- |
+| `libaom`     | AV1 encoder                |
+| `fontconfig` | Font access library        |
+| `freetype`   | Freetype font engine       |
+| `frei0r`     | frei0r filters             |
+| `lame`       | LAME MP3 encoder           |
+| `libass`     | ASS subtitle support       |
+| `libvorbis`  | Vorbis encoder             |
+| `libvpx`     | VP8 and VP9 encoder        |
+| `opus`       | Opus encoder               |
+| `rtmpdump`   | RTMP dumping support       |
+| `sdl2`       | Simple DirectMedia Layer   |
+| `snappy`     | Snappy compression support |
+| `theora`     | Theora encoder             |
+| `x264`       | x264 H.264 encoder         |
+| `x265`       | x265 HEVC encoder          |
+| `xz`         | XZ compression support     |
 
 This formula features the following libraries optionally:
 
-| Dependency | Description | Remarks |
-| ---------- | ----------- | ------- |
-| `chromaprint` | Chromaprint audio fingerprinting library | See the workaround in the [Troubleshooting](#troubleshooting) section.
-| `decklink` | Enable DeckLink support | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837).
-| `fdk-aac` | Fraunhofer FDK AAC library |
-| `game-music-emu` | Enable Game Music Emu (GME) support |
-| `jack` | Jack audio device support |
-| `jpeg-xl` | JPEG XL support |
-| `libaribb24` | Enable decoding ARIB/ISDB captions |
-| `libbluray` | libbluray support |
-| `libbs2b` | libbs2b support |
-| `libcaca` | libcaca support |
-| `libflite` | Enable text to speech synthesis support via Flite | Flite has to be installed **before** running the FFmpeg formula.
-| `libgsm` | libgsm support |
-| `libmodplug` | Enable module/tracker files as inputs via libmodplug |
-| `libopenmpt` | Enable module/tracker files as inputs via libopenmpt |
-| `librist` | RIST support |
-| `librsvg` | SVG files as inputs via librsvg |
-| `libsoxr` | soxr resample library |
-| `libssh` | SFTP protocol via libssh |
-| `libvidstab` | vid.stab support for video stabilization |
-| `libvmaf` | VMAF video quality metric |
-| `libxml2` | libxml2 library |
-| `libzvbi` | Enable decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.
-| `opencore-amr` | Opencore AMR NR/WB audio format |
-| `openh264` | OpenH264 library |
-| `openjpeg` | JPEG 2000 image format |
-| `openssl` | SSL support |
-| `rav1e` | AV1 encoding via librav1e |
-| `svt-av1` | Scalable Video Technology for AV1 (encoder and decoder) |
-| `rtmpdump` | rtmpdump support |
-| `rubberband` | rubberband library |
-| `speex` | speex support |
-| `srt` | SRT library |
-| `tesseract` | tesseract OCR engine |
-| `two-lame` | two-lame support |
-| `webp` | libwebp to encode WEBP images |
-| `xvid` | xvid support |
-| `zeromq` | libzeromq to receive commands sent through a libzeromq client |
-| `zimg` | z.lib zimg library |
+| Dependency       | Description                                                      | Remarks                                                                                                                                                                                                                                                                                                                                     |
+| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `chromaprint`    | Chromaprint audio fingerprinting library                         | See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                                                      |
+| `decklink`       | Enable DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
+| `fdk-aac`        | Fraunhofer FDK AAC library                                       |
+| `game-music-emu` | Enable Game Music Emu (GME) support                              |
+| `jack`           | Jack audio device support                                        |
+| `jpeg-xl`        | JPEG XL support                                                  |
+| `libaribb24`     | Enable decoding ARIB/ISDB captions                               |
+| `libbluray`      | libbluray support                                                |
+| `libbs2b`        | libbs2b support                                                  |
+| `libcaca`        | libcaca support                                                  |
+| `libflite`       | Enable text to speech synthesis support via Flite                | Flite has to be installed **before** running the FFmpeg formula.                                                                                                                                                                                                                                                                            |
+| `libgsm`         | libgsm support                                                   |
+| `libmodplug`     | Enable module/tracker files as inputs via libmodplug             |
+| `libopenmpt`     | Enable module/tracker files as inputs via libopenmpt             |
+| `librist`        | RIST support                                                     |
+| `librsvg`        | SVG files as inputs via librsvg                                  |
+| `libsoxr`        | soxr resample library                                            |
+| `libssh`         | SFTP protocol via libssh                                         |
+| `libvidstab`     | vid.stab support for video stabilization                         |
+| `libvmaf`        | VMAF video quality metric                                        |
+| `libxml2`        | libxml2 library                                                  |
+| `libzvbi`        | Enable decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `opencore-amr`   | Opencore AMR NR/WB audio format                                  |
+| `openh264`       | OpenH264 library                                                 |
+| `openjpeg`       | JPEG 2000 image format                                           |
+| `openssl`        | SSL support                                                      |
+| `rav1e`          | AV1 encoding via librav1e                                        |
+| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)          |
+| `rtmpdump`       | rtmpdump support                                                 |
+| `rubberband`     | rubberband library                                               |
+| `speex`          | speex support                                                    |
+| `srt`            | SRT library                                                      |
+| `tesseract`      | tesseract OCR engine                                             |
+| `two-lame`       | two-lame support                                                 |
+| `webp`           | libwebp to encode WEBP images                                    |
+| `xvid`           | xvid support                                                     |
+| `zeromq`         | libzeromq to receive commands sent through a libzeromq client    |
+| `zimg`           | z.lib zimg library                                               |
 
 ## Troubleshooting
 
 In general, please note that we only provide support for current macOS versions that still receive security updates. Beta or pre-release versions as well as legacy versions are not supported.
 
 When installing a piece of SOFTWARE which is using this FFmpeg distribution, then you may get the following error:
-```
+
+```bash
 ==> Installing dependencies for SOFTWARE: ffmpeg
 Error: ffmpeg is already installed from homebrew-ffmpeg/ffmpeg!
 Please `brew uninstall ffmpeg` first."
 ```
 
 Here is a workaround:
-```
+
+```bash
 brew uninstall ffmpeg
 brew install SOFTWARE
 brew uninstall --ignore-dependencies ffmpeg
