@@ -5,6 +5,7 @@ class Ffmpeg < Formula
   version "6.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "488c76e57dd9b3bee901f71d5c95eaf1db4a5a31fe46a28654e837144207c270"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -15,6 +16,7 @@ class Ffmpeg < Formula
   option "with-jack", "Enable Jack support"
   option "with-jpeg-xl", "Enable JPEG XL image format"
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
+  option "with-libaribcaption", "Enable ARIB STD-B24 based broadcast captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
@@ -66,6 +68,7 @@ class Ffmpeg < Formula
   depends_on "game-music-emu" => :optional
   depends_on "jack" => :optional
   depends_on "jpeg-xl" => :optional
+  depends_on "libaribcaption" => :optional
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
@@ -154,6 +157,7 @@ class Ffmpeg < Formula
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
     args << "--enable-chromaprint" if build.with? "chromaprint"
+    args << "--enable-libaribcaption" if build.with? "libaribcaption"
     args << "--enable-libaribb24" if build.with? "libaribb24"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
