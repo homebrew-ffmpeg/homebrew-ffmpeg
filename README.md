@@ -1,12 +1,14 @@
 # homebrew-ffmpeg
 
-[![GH Actions CI](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml/badge.svg)](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml)
+[![GH Actions CI](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/actions/workflows/main.yml)
 
 This is a 3<sup>rd</sup> party tap for [Homebrew](https://brew.sh/). It provides a formula for `ffmpeg` which includes options for enabling additional features and libraries.
 
 Contents:
 
 - [Installation and usage](#installation-and-usage)
+  - [Installing with options](#installing-with-options)
+  - [Installing latest Git version (`HEAD`)](#installing-latest-git-version-head)
 - [Updating](#updating)
 - [Included libraries](#included-libraries)
 - [Troubleshooting](#troubleshooting)
