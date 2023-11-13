@@ -76,7 +76,7 @@ class Ffmpeg < Formula
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
-  depends_on "libopenvino" => :optional
+  depends_on "openvino" => :optional
   depends_on "librist" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
