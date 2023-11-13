@@ -128,6 +128,7 @@ This formula features the following libraries optionally:
 | `openh264`       | OpenH264 library                                                 |
 | `openjpeg`       | JPEG 2000 image format                                           |
 | `openssl`        | SSL support                                                      |
+| `openvino`       | OpenVINO support                                                 |
 | `rav1e`          | AV1 encoding via librav1e                                        |
 | `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)          |
 | `rtmpdump`       | rtmpdump support                                                 |
