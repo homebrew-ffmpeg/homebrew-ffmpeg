@@ -76,7 +76,6 @@ class Ffmpeg < Formula
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
-  depends_on "openvino" => :optional
   depends_on "librist" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
@@ -88,6 +87,7 @@ class Ffmpeg < Formula
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl@1.1" => :optional
+  depends_on "openvino" => :optional
   depends_on "rav1e" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
