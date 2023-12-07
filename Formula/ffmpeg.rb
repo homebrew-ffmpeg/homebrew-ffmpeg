@@ -1,9 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz"
-  version "6.0-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
+  url "https://ffmpeg.org/releases/ffmpeg-6.1.tar.xz"
+  version "6.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "488c76e57dd9b3bee901f71d5c95eaf1db4a5a31fe46a28654e837144207c270"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
