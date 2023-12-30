@@ -135,6 +135,7 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-gpl
+      --enable-runtime-cpudetect
       --enable-libaom
       --enable-libdav1d
       --enable-libmp3lame
