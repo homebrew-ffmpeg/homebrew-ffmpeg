@@ -6,14 +6,15 @@ This is a 3<sup>rd</sup> party tap for [Homebrew](https://brew.sh/). It provides
 
 Contents:
 
-- [Installation and usage](#installation-and-usage)
-  - [Installing with options](#installing-with-options)
-  - [Installing latest Git version (`HEAD`)](#installing-latest-git-version-head)
-- [Updating](#updating)
-- [Included libraries](#included-libraries)
-- [Troubleshooting](#troubleshooting)
-- [Issues](#issues)
-- [Maintainers](#maintainers)
+- [homebrew-ffmpeg](#homebrew-ffmpeg)
+  - [Installation and usage](#installation-and-usage)
+    - [Installing with options](#installing-with-options)
+    - [Installing latest Git version (`HEAD`)](#installing-latest-git-version-head)
+  - [Updating](#updating)
+  - [Included libraries](#included-libraries)
+  - [Troubleshooting](#troubleshooting)
+  - [Issues](#issues)
+  - [Maintainers](#maintainers)
 
 ## Installation and usage
 
@@ -117,6 +118,7 @@ This formula features the following libraries optionally:
 | `libgsm`         | libgsm support                                                   |
 | `libmodplug`     | Enable module/tracker files as inputs via libmodplug             |
 | `libopenmpt`     | Enable module/tracker files as inputs via libopenmpt             |
+| `libplacebo`     |  Enable GPU-accelerated image/video processing primitives        |
 | `librist`        | RIST support                                                     |
 | `librsvg`        | SVG files as inputs via librsvg                                  |
 | `libsoxr`        | soxr resample library                                            |
