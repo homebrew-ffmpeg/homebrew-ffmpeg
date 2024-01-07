@@ -118,7 +118,7 @@ This formula features the following libraries optionally:
 | `libgsm`         | libgsm support                                                   |
 | `libmodplug`     | Enable module/tracker files as inputs via libmodplug             |
 | `libopenmpt`     | Enable module/tracker files as inputs via libopenmpt             |
-| `libplacebo`     |  Enable GPU-accelerated image/video processing primitives        |
+| `libplacebo`     | Enable GPU-accelerated image/video processing primitives         |
 | `librist`        | RIST support                                                     |
 | `librsvg`        | SVG files as inputs via librsvg                                  |
 | `libsoxr`        | soxr resample library                                            |
