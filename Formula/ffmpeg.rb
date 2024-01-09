@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "6.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "488c76e57dd9b3bee901f71d5c95eaf1db4a5a31fe46a28654e837144207c270"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -176,7 +176,7 @@ class Ffmpeg < Formula
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
-    args << "--enable-openvino" if build.with? "openvino"
+    args << "--enable-libopenvino" if build.with? "openvino"
     args << "--enable-librav1e" if build.with? "rav1e"
     args << "--enable-libsvtav1" if build.with? "svt-av1"
     args << "--enable-librist" if build.with? "librist"
