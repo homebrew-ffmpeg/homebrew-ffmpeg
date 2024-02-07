@@ -20,6 +20,7 @@ class Ffmpeg < Formula
   option "with-libaribcaption", "Enable ARIB STD-B24 based broadcast captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
+  option "with-libplacebo", "Enable GPU-accelerated image/video processing primitives"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
@@ -78,6 +79,7 @@ class Ffmpeg < Formula
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
+  depends_on "libplacebo" => :optional
   depends_on "librist" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
@@ -213,6 +215,12 @@ class Ffmpeg < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
       args << "--enable-libjack"
       args << "--enable-indev=jack"
+    end
+
+    if build.with? "libplacebo"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libplacebo"].opt_lib/"pkgconfig"
+      args << "--enable-libplacebo"
+      args << "--enable-vulkan"
     end
 
     if build.with? "libzvbi"
