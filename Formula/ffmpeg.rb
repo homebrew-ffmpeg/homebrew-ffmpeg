@@ -88,7 +88,7 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "openssl@1.1" => :optional
+  depends_on "openssl" => :optional
   depends_on "openvino" => :optional
   depends_on "rav1e" => :optional
   depends_on "rtmpdump" => :optional
