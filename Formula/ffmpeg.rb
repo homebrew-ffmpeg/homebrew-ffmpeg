@@ -1,11 +1,10 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.1.tar.xz"
-  version "6.1-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "488c76e57dd9b3bee901f71d5c95eaf1db4a5a31fe46a28654e837144207c270"
+  url "https://ffmpeg.org/releases/ffmpeg-7.0.tar.xz"
+  version "7.0-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b"
   license "GPL-2.0-or-later"
-  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -20,6 +19,7 @@ class Ffmpeg < Formula
   option "with-libaribcaption", "Enable ARIB STD-B24 based broadcast captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
+  option "with-libplacebo", "Enable GPU-accelerated image/video processing primitives"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
@@ -78,6 +78,7 @@ class Ffmpeg < Formula
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
+  depends_on "libplacebo" => :optional
   depends_on "librist" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
@@ -88,7 +89,7 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "openssl@1.1" => :optional
+  depends_on "openssl" => :optional
   depends_on "openvino" => :optional
   depends_on "rav1e" => :optional
   depends_on "rtmpdump" => :optional
@@ -176,7 +177,6 @@ class Ffmpeg < Formula
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
-    args << "--enable-openvino" if build.with? "openvino"
     args << "--enable-librav1e" if build.with? "rav1e"
     args << "--enable-libsvtav1" if build.with? "svt-av1"
     args << "--enable-librist" if build.with? "librist"
@@ -197,6 +197,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
+    args << "--enable-openvino" if build.with? "openvino"
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
@@ -213,6 +214,12 @@ class Ffmpeg < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
       args << "--enable-libjack"
       args << "--enable-indev=jack"
+    end
+
+    if build.with? "libplacebo"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libplacebo"].opt_lib/"pkgconfig"
+      args << "--enable-libplacebo"
+      args << "--enable-vulkan"
     end
 
     if build.with? "libzvbi"
