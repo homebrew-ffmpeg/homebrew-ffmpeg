@@ -99,50 +99,50 @@ This formula installs the following libraries by default:
 
 This formula features the following libraries optionally:
 
-| Dependency       | Description                                                      | Remarks                                                                                                                                                                                                                                                                                                                                     |
-| ---------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chromaprint`    | Chromaprint audio fingerprinting library                         | See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                                                      |
-| `decklink`       | Enable DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
-| `fdk-aac`        | Fraunhofer FDK AAC library                                       |
-| `game-music-emu` | Enable Game Music Emu (GME) support                              |
-| `harfbuzz`       | Enable OpenType text shaping engine (libharfbuzz)                |
-| `jack`           | Jack audio device support                                        |
-| `jpeg-xl`        | JPEG XL support                                                  |
-| `libaribcaption` | Enable handling of ARIB STD-B24 based broadcast captions         |
-| `libaribb24`     | Enable decoding ARIB/ISDB captions                               |
-| `libbluray`      | libbluray support                                                |
-| `libbs2b`        | libbs2b support                                                  |
-| `libcaca`        | libcaca support                                                  |
-| `libflite`       | Enable text to speech synthesis support via Flite                | Flite has to be installed **before** running the FFmpeg formula.                                                                                                                                                                                                                                                                            |
-| `libgsm`         | libgsm support                                                   |
-| `libmodplug`     | Enable module/tracker files as inputs via libmodplug             |
-| `libopenmpt`     | Enable module/tracker files as inputs via libopenmpt             |
-| `libplacebo`     | Enable GPU-accelerated image/video processing primitives         |
-| `librist`        | RIST support                                                     |
-| `librsvg`        | SVG files as inputs via librsvg                                  |
-| `libsoxr`        | soxr resample library                                            |
-| `libssh`         | SFTP protocol via libssh                                         |
-| `libvidstab`     | vid.stab support for video stabilization                         |
-| `libvmaf`        | VMAF video quality metric                                        |
-| `libxml2`        | libxml2 library                                                  |
-| `libzvbi`        | Enable decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
-| `opencore-amr`   | Opencore AMR NR/WB audio format                                  |
-| `openh264`       | OpenH264 library                                                 |
-| `openjpeg`       | JPEG 2000 image format                                           |
-| `openssl`        | SSL support                                                      |
-| `openvino`       | OpenVINO support                                                 |
-| `rav1e`          | AV1 encoding via librav1e                                        |
-| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)          |
-| `rtmpdump`       | rtmpdump support                                                 |
-| `rubberband`     | rubberband library                                               |
-| `speex`          | speex support                                                    |
-| `srt`            | SRT library                                                      |
-| `tesseract`      | tesseract OCR engine                                             |
-| `two-lame`       | two-lame support                                                 |
-| `webp`           | libwebp to encode WEBP images                                    |
-| `xvid`           | xvid support                                                     |
-| `zeromq`         | libzeromq to receive commands sent through a libzeromq client    |
-| `zimg`           | z.lib zimg library                                               |
+| Dependency       | Description                                               | Remarks                                                                                                                                                                                                                                                                                                                                     |
+| ---------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `chromaprint`    | Chromaprint audio fingerprinting library                  | There is a cyclic dependency issue. See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                  |
+| `decklink`       | DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
+| `fdk-aac`        | Fraunhofer FDK AAC library                                |
+| `game-music-emu` | Game Music Emu (GME) support                              |
+| `harfbuzz`       | OpenType text shaping engine (libharfbuzz)                |
+| `jack`           | Jack audio device support                                 |
+| `jpeg-xl`        | JPEG XL support                                           |
+| `libaribcaption` | Handling of ARIB STD-B24 based broadcast captions         |
+| `libaribb24`     | Decoding ARIB/ISDB captions                               |
+| `libbluray`      | Blu-Ray Disc support                                      |
+| `libbs2b`        | Bauer stereophonic-to-binaural DSP library                |
+| `libcaca`        | Colour ASCII Art Library                                  |
+| `libflite`       | Text to speech synthesis                                  | Flite has to be installed **before** running the FFmpeg formula. This is not supported directly via Homebrew. See [this issue](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/157) for some installation options.                                                                                                                |
+| `libgsm`         | GSM 06.10 lossy speech compression                        |
+| `libmodplug`     | Module/tracker files as inputs via libmodplug             |
+| `libopenmpt`     | Module/tracker files as inputs via libopenmpt             |
+| `libplacebo`     | GPU-accelerated image/video processing primitives         |
+| `librist`        | Reliable Internet Stream Transport                        |
+| `librsvg`        | SVG files as inputs                                       |
+| `libsoxr`        | The SoX resampling library                                |
+| `libssh`         | Support SFTP protocol                                     |
+| `libvidstab`     | Video stabilization library                               |
+| `libvmaf`        | VMAF video quality metric                                 |
+| `libxml2`        | XML parser and toolkit                                    |
+| `libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `opencore-amr`   | Opencore AMR NR/WB audio format                           |
+| `openh264`       | OpenH264 library                                          |
+| `openjpeg`       | JPEG 2000 image format                                    |
+| `openssl`        | SSL support                                               |
+| `openvino`       | OpenVINO (optimizing and deploying deep learning models)  |
+| `rav1e`          | AV1 encoding                                              |
+| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |
+| `rtmpdump`       | Dumping RTMP strea s                                      |
+| `rubberband`     | Audio time-stretching and pitch-shifting                  |
+| `speex`          | speex codec                                               |
+| `srt`            | Secure Reliable Transport library                         |
+| `tesseract`      | An Optical Character Recognition (OCR) engine             |
+| `two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |
+| `webp`           | Encode WEBP images                                        |
+| `xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |
+| `zeromq`         | Receive commands sent through a libzeromq client          |
+| `zimg`           | Image conversion library                                  |
 
 ## Troubleshooting
 
