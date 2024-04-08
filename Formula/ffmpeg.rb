@@ -5,6 +5,7 @@ class Ffmpeg < Formula
   version "7.0-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -126,9 +127,6 @@ class Ffmpeg < Formula
   end
 
   def install
-    # The new linker leads to duplicate symbol issue https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/140
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
     args = %W[
       --prefix=#{prefix}
       --enable-shared
