@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "7.0-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -57,6 +57,8 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "libx11"
+  depends_on "libxcb"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "snappy"
@@ -108,8 +110,15 @@ class Ffmpeg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libarchive"
+    depends_on "libogg"
+    depends_on "libsamplerate"
+  end
+
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libxext"
     depends_on "libxv"
   end
 
