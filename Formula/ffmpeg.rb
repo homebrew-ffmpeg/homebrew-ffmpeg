@@ -1,11 +1,10 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.0.tar.xz"
-  version "7.0-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "4426a94dd2c814945456600c8adfc402bee65ec14a70e8c531ec9a2cd651da7b"
+  url "https://ffmpeg.org/releases/ffmpeg-7.0.1.tar.xz"
+  version "7.0.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "bce9eeb0f17ef8982390b1f37711a61b4290dc8c2a0c1a37b5857e85bfb0e4ff"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -13,7 +12,6 @@ class Ffmpeg < Formula
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
-  option "with-harfbuzz", "Enable OpenType text shaping engine"
   option "with-jack", "Enable Jack support"
   option "with-jpeg-xl", "Enable JPEG XL image format"
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
@@ -53,10 +51,13 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
+  depends_on "harfbuzz"
   depends_on "lame"
   depends_on "libass"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "libx11"
+  depends_on "libxcb"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "snappy"
@@ -69,7 +70,6 @@ class Ffmpeg < Formula
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
-  depends_on "harfbuzz" => :optional
   depends_on "jack" => :optional
   depends_on "jpeg-xl" => :optional
   depends_on "libaribcaption" => :optional
@@ -108,8 +108,15 @@ class Ffmpeg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libarchive"
+    depends_on "libogg"
+    depends_on "libsamplerate"
+  end
+
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libxext"
     depends_on "libxv"
   end
 
@@ -136,6 +143,7 @@ class Ffmpeg < Formula
       --enable-gpl
       --enable-libaom
       --enable-libdav1d
+      --enable-libharfbuzz
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
@@ -169,7 +177,6 @@ class Ffmpeg < Formula
     args << "--enable-libflite" if build.with? "libflite"
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
-    args << "--enable-libharfbuzz" if build.with? "harfbuzz"
     args << "--enable-libjxl" if build.with? "jpeg-xl"
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
