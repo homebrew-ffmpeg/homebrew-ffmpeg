@@ -103,9 +103,9 @@ This formula features the following libraries optionally:
 | ---------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `chromaprint`    | Chromaprint audio fingerprinting library                  | There is a cyclic dependency issue. See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                  |
 | `decklink`       | DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
+| `dvd`            | DVD-Video demuxer powered by `libdvdnav` and `libdvdread` |
 | `fdk-aac`        | Fraunhofer FDK AAC library                                |
 | `game-music-emu` | Game Music Emu (GME) support                              |
-| `harfbuzz`       | OpenType text shaping engine (libharfbuzz)                |
 | `jack`           | Jack audio device support                                 |
 | `jpeg-xl`        | JPEG XL support                                           |
 | `libaribcaption` | Handling of ARIB STD-B24 based broadcast captions         |
