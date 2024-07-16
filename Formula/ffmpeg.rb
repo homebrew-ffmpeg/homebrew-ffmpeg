@@ -9,6 +9,7 @@ class Ffmpeg < Formula
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
+  option "with-dvd", "Enable DVD-Video demuxer, powered by libdvdnav and libdvdread"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
@@ -76,6 +77,8 @@ class Ffmpeg < Formula
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "libdvdread" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
@@ -213,6 +216,11 @@ class Ffmpeg < Formula
       args << "--extra-cflags=-I#{HOMEBREW_PREFIX}/include"
       args << "--extra-ldflags=-L#{HOMEBREW_PREFIX}/include"
       mv "VERSION", "VERSION.txt"
+    end
+
+    if build.with? "dvd"
+      args << "--enable-libdvdnav"
+      args << "--enable-libdvdread"
     end
 
     if build.with? "jack"
