@@ -1,11 +1,10 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.0.1.tar.xz"
+  url "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.gz"
   version "7.0.1-with-options" # to distinguish from homebrew-core's ffmpeg
-  sha256 "bce9eeb0f17ef8982390b1f37711a61b4290dc8c2a0c1a37b5857e85bfb0e4ff"
+  sha256 "1233b3a93dd7517cc3c56b72a67f64041c044848d981e3deff4bebffa25f1054"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
