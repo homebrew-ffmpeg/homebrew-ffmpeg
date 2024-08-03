@@ -2,7 +2,7 @@ class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.gz"
-  version "7.0.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  version "7.0.2-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "1233b3a93dd7517cc3c56b72a67f64041c044848d981e3deff4bebffa25f1054"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
