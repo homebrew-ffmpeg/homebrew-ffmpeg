@@ -31,7 +31,7 @@ class Ffmpeg < Formula
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
-  option "with-openvino", "Enable OpenVINO"
+  option "with-openvino", "Enable OpenVINO as a module backend for DNN-based filters"
   option "with-rav1e", "Enable AV1 encoding via librav1e"
   option "with-svt-av1", "Enable Scalable Video Technology for AV1"
   option "with-rtmpdump", "Enable RTMP dumping support"
@@ -209,7 +209,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
-    args << "--enable-openvino" if build.with? "openvino"
+    args << "--enable-libopenvino" if build.with? "openvino"
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
