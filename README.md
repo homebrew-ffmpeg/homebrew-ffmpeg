@@ -130,7 +130,7 @@ This formula features the following libraries optionally:
 | `openh264`       | OpenH264 library                                          |
 | `openjpeg`       | JPEG 2000 image format                                    |
 | `openssl`        | SSL support                                               |
-| `openvino`       | OpenVINO (optimizing and deploying deep learning models)  |
+| `openvino`       | OpenVINO for Deep Neural Network based filters            |
 | `rav1e`          | AV1 encoding                                              |
 | `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |
 | `rtmpdump`       | Dumping RTMP strea s                                      |
