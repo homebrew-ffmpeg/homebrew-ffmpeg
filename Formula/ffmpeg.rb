@@ -24,6 +24,7 @@ class Ffmpeg < Formula
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
+  option "with-libtensorflow", "Enable TensorFlow as a module backend for DNN-based filters"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
@@ -101,6 +102,7 @@ class Ffmpeg < Formula
   depends_on "speex" => :optional
   depends_on "srt" => :optional
   depends_on "svt-av1" => :optional
+  depends_on "libtensorflow" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
   depends_on "webp" => :optional
@@ -196,6 +198,7 @@ class Ffmpeg < Formula
     args << "--enable-libspeex" if build.with? "speex"
     args << "--enable-libsrt" if build.with? "srt"
     args << "--enable-libssh" if build.with? "libssh"
+    args << "--enable-libtensorflow" if build.with? "libtensorflow"
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
