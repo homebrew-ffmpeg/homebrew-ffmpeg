@@ -88,6 +88,7 @@ class Ffmpeg < Formula
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
+  depends_on "libtensorflow" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
   depends_on "libxml2" => :optional
@@ -100,7 +101,6 @@ class Ffmpeg < Formula
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
-  depends_on "libtensorflow" => :optional
   depends_on "srt" => :optional
   depends_on "svt-av1" => :optional
   depends_on "tesseract" => :optional
