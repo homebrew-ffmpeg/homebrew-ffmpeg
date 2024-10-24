@@ -137,7 +137,7 @@ This formula features the following libraries optionally:
 | `rubberband`     | Audio time-stretching and pitch-shifting                  |
 | `speex`          | speex codec                                               |
 | `srt`            | Secure Reliable Transport library                         |
-| `tensorflow`     | TensorFlow for Deep Neural Network based filters          |
+| `tensorflow`     | TensorFlow for Deep Neural Network based filters          |  You need to train your own model or source pre-trained models from elsewhere (modelzoo, openmodeldb or similar). For details see the notes in [the pull request](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/pull/172)
 | `tesseract`      | An Optical Character Recognition (OCR) engine             |
 | `two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |
 | `webp`           | Encode WEBP images                                        |
