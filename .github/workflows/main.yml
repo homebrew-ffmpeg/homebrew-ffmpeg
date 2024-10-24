@@ -29,4 +29,11 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
+    # To fix circular dependency issue, see:
+    # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/13
+    - name: Remove chromaprint from ffmpeg formula
+      run: |
+        grep -v chromaprint Formula/ffmpeg.rb > Formula/ffmpeg.rb.tmp
+        mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
+
     - run: brew test-bot --skip-recursive-dependents
