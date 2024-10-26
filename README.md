@@ -133,7 +133,7 @@ This formula features the following libraries optionally:
 | `openvino`       | OpenVINO for Deep Neural Network based filters            |
 | `rav1e`          | AV1 encoding                                              |
 | `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |
-| `rtmpdump`       | Dumping RTMP strea s                                      |
+| `rtmpdump`       | Dumping RTMP streams                                      |
 | `rubberband`     | Audio time-stretching and pitch-shifting                  |
 | `speex`          | speex codec                                               |
 | `srt`            | Secure Reliable Transport library                         |
