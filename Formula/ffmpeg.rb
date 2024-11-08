@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "7.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -166,11 +166,12 @@ class Ffmpeg < Formula
       --enable-demuxer=dash
     ]
 
+    args << "--enable-neon" if Hardware::CPU.arm?
+
     if OS.mac?
       args << "--enable-opencl"
       args << "--enable-audiotoolbox"
       args << "--enable-videotoolbox"
-      args << "--enable-neon" if Hardware::CPU.arm?
     end
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
@@ -257,8 +258,8 @@ class Ffmpeg < Formula
 
     # Build and install additional FFmpeg tools
     system "make", "alltools"
-    bin.install Dir["tools/*"].select { |f| File.executable? f }
-    mv bin/"python", pkgshare/"python", force: true
+    bin.install (buildpath/"tools").children.select { |f| f.file? && f.executable? }
+    pkgshare.install buildpath/"tools/python"
 
     if build.with? "tesseract"
       opoo <<~EOS
