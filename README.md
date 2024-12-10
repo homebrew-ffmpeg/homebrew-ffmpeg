@@ -126,6 +126,7 @@ This formula features the following libraries optionally:
 | `libvmaf`        | VMAF video quality metric                                 |
 | `libxml2`        | XML parser and toolkit                                    |
 | `libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `openal-soft`    | OpenAL (Open Audio Library) for macOS targets             |
 | `opencore-amr`   | Opencore AMR NR/WB audio format                           |
 | `openh264`       | OpenH264 library                                          |
 | `openjpeg`       | JPEG 2000 image format                                    |
@@ -137,7 +138,7 @@ This formula features the following libraries optionally:
 | `rubberband`     | Audio time-stretching and pitch-shifting                  |
 | `speex`          | speex codec                                               |
 | `srt`            | Secure Reliable Transport library                         |
-| `tensorflow`     | TensorFlow for Deep Neural Network based filters          |  You need to train your own model or source pre-trained models from elsewhere (modelzoo, openmodeldb or similar). For details see the notes in [the pull request](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/pull/172)
+| `tensorflow`     | TensorFlow for Deep Neural Network based filters          | You need to train your own model or source pre-trained models from elsewhere (modelzoo, openmodeldb or similar). For details see the notes in [the pull request](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/pull/172)
 | `tesseract`      | An Optical Character Recognition (OCR) engine             |
 | `two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |
 | `webp`           | Encode WEBP images                                        |
