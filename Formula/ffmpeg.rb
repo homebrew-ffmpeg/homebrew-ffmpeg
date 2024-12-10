@@ -5,7 +5,7 @@ class Ffmpeg < Formula
   version "7.1-with-options" # to distinguish from homebrew-core's ffmpeg
   sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -28,6 +28,7 @@ class Ffmpeg < Formula
   option "with-tensorflow", "Enable TensorFlow as a module backend for DNN-based filters"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
+  option "with-opemal", "Enable OpenAL (Open Audio Library) for Mac targets"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
@@ -93,6 +94,7 @@ class Ffmpeg < Formula
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
   depends_on "libxml2" => :optional
+  depends_on "openal-soft" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -169,6 +171,7 @@ class Ffmpeg < Formula
     args << "--enable-neon" if Hardware::CPU.arm?
 
     if OS.mac?
+      args << "--enable-openal" if build.with? "openal"
       args << "--enable-opencl"
       args << "--enable-audiotoolbox"
       args << "--enable-videotoolbox"

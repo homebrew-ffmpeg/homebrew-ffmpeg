@@ -126,6 +126,7 @@ This formula features the following libraries optionally:
 | `libvmaf`        | VMAF video quality metric                                 |
 | `libxml2`        | XML parser and toolkit                                    |
 | `libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `openal`         | OpenAL (Open Audio Library) for Mac targets               |
 | `opencore-amr`   | Opencore AMR NR/WB audio format                           |
 | `openh264`       | OpenH264 library                                          |
 | `openjpeg`       | JPEG 2000 image format                                    |
