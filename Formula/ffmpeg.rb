@@ -47,7 +47,7 @@ class Ffmpeg < Formula
   option "with-libxml2", "Enable libxml2 library"
   option "with-libzvbi", "Enable decoding of DVB teletext pages and DVB teletext subtitles"
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "aom"
   depends_on "dav1d"
