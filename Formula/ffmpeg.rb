@@ -28,7 +28,7 @@ class Ffmpeg < Formula
   option "with-tensorflow", "Enable TensorFlow as a module backend for DNN-based filters"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
-  option "with-opemal", "Enable OpenAL (Open Audio Library) for Mac targets"
+  option "with-openal", "Enable OpenAL (Open Audio Library) for Mac targets"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
