@@ -1,22 +1,11 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
+  version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
+  sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
-    version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
-    sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
-
-    # Fix for x264 segfault
-    # https://github.com/Homebrew/homebrew-core/pull/202680/commits/4997de5addc10c74daf5a492dbea4df63af9b8ad
-    # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/179
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/099f88b8641dfc299f3896d17d9addc5b9ae7799.patch?full_index=1"
-      sha256 "43677660210523f0eb6db93c4ac9c7943c959116951a5859e6f14568b4392a59"
-    end
-  end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
