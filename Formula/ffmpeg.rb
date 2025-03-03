@@ -2,13 +2,12 @@ class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
   license "GPL-2.0-or-later"
-  revision 4
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz"
-    version "7.1-with-options" # to distinguish from homebrew-core's ffmpeg
-    sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
+    url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
+    version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
+    sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
 
     # Fix for x264 segfault
     # https://github.com/Homebrew/homebrew-core/pull/202680/commits/4997de5addc10c74daf5a492dbea4df63af9b8ad
