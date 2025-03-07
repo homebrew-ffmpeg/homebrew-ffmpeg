@@ -133,7 +133,7 @@ This formula features the following libraries optionally:
 | `openssl`        | SSL support                                               |
 | `openvino`       | OpenVINO for Deep Neural Network based filters            |
 | `rav1e`          | AV1 encoding                                              |
-| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |
+| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   | Since 2025-03-06 this library only works with `--HEAD`.
 | `rtmpdump`       | Dumping RTMP streams                                      |
 | `rubberband`     | Audio time-stretching and pitch-shifting                  |
 | `speex`          | speex codec                                               |
