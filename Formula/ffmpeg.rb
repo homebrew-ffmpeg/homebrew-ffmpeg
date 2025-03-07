@@ -1,13 +1,13 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
   license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   stable do
     url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
+    version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
     sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
 
     # Backport support for recent svt-av1 (3.0.0)
