@@ -142,6 +142,7 @@ This formula features the following libraries optionally:
 | `tesseract`      | An Optical Character Recognition (OCR) engine             |
 | `two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |
 | `webp`           | Encode WEBP images                                        |
+| `whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          |
 | `xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |
 | `zeromq`         | Receive commands sent through a libzeromq client          |
 | `zimg`           | Image conversion library                                  |

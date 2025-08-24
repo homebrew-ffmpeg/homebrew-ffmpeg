@@ -1,21 +1,10 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz"
+  sha256 "b2751fccb6cc4c77708113cd78b561059b6fa904b24162fa0be2d60273d27b8e"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
-    version "7.1.1-with-options" # to distinguish from homebrew-core's ffmpeg
-    sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
-
-    # Backport support for recent svt-av1 (3.0.0)
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
-      sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
-    end
-  end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
@@ -49,6 +38,7 @@ class Ffmpeg < Formula
   option "with-rubberband", "Enable rubberband library"
   option "with-two-lame", "Enable TwoLAME, an optimized MPEG Audio Layer 2 (MP2) encoder"
   option "with-webp", "Enable using libwebp to encode WEBP images"
+  option "with-whisper-cpp", "Enable OpenAI's Whisper speech recognition model"
   option "with-xvid", "Enable Xvid"
   option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
@@ -118,6 +108,7 @@ class Ffmpeg < Formula
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
   depends_on "webp" => :optional
+  depends_on "whisper-cpp" => :optional
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
@@ -251,6 +242,11 @@ class Ffmpeg < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["libplacebo"].opt_lib/"pkgconfig"
       args << "--enable-libplacebo"
       args << "--enable-vulkan"
+    end
+
+    if build.with? "whisper-cpp"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["whisper-cpp"].opt_lib/"pkgconfig"
+      args << "--enable-whisper"
     end
 
     if build.with? "libzvbi"
