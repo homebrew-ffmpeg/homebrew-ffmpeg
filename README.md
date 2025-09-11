@@ -97,55 +97,50 @@ This formula installs the following libraries by default:
 | `x265`       | x265 HEVC encoder          |
 | `xz`         | XZ compression support     |
 
-This formula features the following libraries optionally:
+This formula features the following libraries optionally if you pass the respective `--with-<option>` flag(s):
 
-| Dependency       | Description                                               | Remarks                                                                                                                                                                                                                                                                                                                                     |
+| Option           | Description                                               | Remarks                                                                                                                                                                                                                                                                                                                                     |
 | ---------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chromaprint`    | Chromaprint audio fingerprinting library                  | There is a cyclic dependency issue. See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                  |
-| `decklink`       | DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
-| `dvd`            | DVD-Video demuxer powered by `libdvdnav` and `libdvdread` |
-| `fdk-aac`        | Fraunhofer FDK AAC library                                |
-| `game-music-emu` | Game Music Emu (GME) support                              |
-| `jack`           | Jack audio device support                                 |
-| `jpeg-xl`        | JPEG XL support                                           |
-| `libaribcaption` | Handling of ARIB STD-B24 based broadcast captions         |
-| `libaribb24`     | Decoding ARIB/ISDB captions                               |
-| `libbluray`      | Blu-Ray Disc support                                      |
-| `libbs2b`        | Bauer stereophonic-to-binaural DSP library                |
-| `libcaca`        | Colour ASCII Art Library                                  |
-| `libflite`       | Text to speech synthesis                                  | Flite has to be installed **before** running the FFmpeg formula. This is not supported directly via Homebrew. See [this issue](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/157) for some installation options.                                                                                                                |
-| `libgsm`         | GSM 06.10 lossy speech compression                        |
-| `libmodplug`     | Module/tracker files as inputs via libmodplug             |
-| `libopenmpt`     | Module/tracker files as inputs via libopenmpt             |
-| `libplacebo`     | GPU-accelerated image/video processing primitives         |
-| `librist`        | Reliable Internet Stream Transport                        |
-| `librsvg`        | SVG files as inputs                                       |
-| `libsoxr`        | The SoX resampling library                                |
-| `libssh`         | Support SFTP protocol                                     |
-| `libvidstab`     | Video stabilization library                               |
-| `libvmaf`        | VMAF video quality metric                                 |
-| `libxml2`        | XML parser and toolkit                                    |
-| `libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
-| `openal-soft`    | OpenAL (Open Audio Library) for macOS targets             |
-| `opencore-amr`   | Opencore AMR NR/WB audio format                           |
-| `openh264`       | OpenH264 library                                          |
-| `openjpeg`       | JPEG 2000 image format                                    |
-| `openssl`        | SSL support                                               |
-| `openvino`       | OpenVINO for Deep Neural Network based filters            |
-| `rav1e`          | AV1 encoding                                              |
-| `svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |
-| `rtmpdump`       | Dumping RTMP streams                                      |
-| `rubberband`     | Audio time-stretching and pitch-shifting                  |
-| `speex`          | speex codec                                               |
-| `srt`            | Secure Reliable Transport library                         |
-| `tensorflow`     | TensorFlow for Deep Neural Network based filters          | You need to train your own model or source pre-trained models from elsewhere (modelzoo, openmodeldb or similar). For details see the notes in [the pull request](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/pull/172)
-| `tesseract`      | An Optical Character Recognition (OCR) engine             |
-| `two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |
-| `webp`           | Encode WEBP images                                        |
-| `whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          |
-| `xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |
-| `zeromq`         | Receive commands sent through a libzeromq client          |
-| `zimg`           | Image conversion library                                  |
+| `--with-chromaprint`    | Chromaprint audio fingerprinting library                  | There is a cyclic dependency issue. See the workaround in the [Troubleshooting](#troubleshooting) section.                                                                                                                                                                                                                                  |
+| `--with-decklink`       | DeckLink support                                          | The DeckLink SDK has to be installed **before** running the FFmpeg formula. One possibility is to use:<br>```brew install amiaopensource/amiaos/decklinksdk```<br><br>In addition, if you experience difficulties on macOS, make sure you follow [these directions](https://forum.blackmagicdesign.com/viewtopic.php?f=4&t=121992#p699837). |
+| `--with-dvd`            | DVD-Video demuxer powered by `libdvdnav` and `libdvdread` |  |
+| `--with-fdk-aac`        | Fraunhofer FDK AAC library                                |  |
+| `--with-libflite`       | Text to speech synthesis                                  | Flite has to be installed **before** running the FFmpeg formula. This is not supported directly via Homebrew. See [this issue](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/157) for some installation options.                                                                                                                |
+| `--with-game-music-emu` | Game Music Emu (GME) support                              |  |
+| `--with-jack`           | Jack audio device support                                 |  |
+| `--with-jpeg-xl`        | JPEG XL support                                           |  |
+| `--with-libaribb24`     | Decoding ARIB/ISDB captions                               |  |
+| `--with-libaribcaption` | Handling of ARIB STD-B24 based broadcast captions         |  |
+| `--with-libmodplug`     | Module/tracker files as inputs via libmodplug             |  |
+| `--with-libopenmpt`     | Module/tracker files as inputs via libopenmpt             |  |
+| `--with-libplacebo`     | GPU-accelerated image/video processing primitives         |  |
+| `--with-librist`        | Reliable Internet Stream Transport                        |  |
+| `--with-librsvg`        | SVG files as inputs                                       |  |
+| `--with-libsoxr`        | The SoX resampling library                                |  |
+| `--with-libssh`         | Support SFTP protocol                                     |  |
+| `--with-tensorflow`     | TensorFlow for Deep Neural Network based filters          | You need to train your own model or source pre-trained models from elsewhere (modelzoo, openmodeldb or similar). For details see the notes in [the pull request](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/pull/172) |
+| `--with-tesseract`      | An Optical Character Recognition (OCR) engine             |  |
+| `--with-libvidstab`     | Video stabilization library                               |  |
+| `--with-openal-soft`    | OpenAL (Open Audio Library) for macOS targets             |  |
+| `--with-opencore-amr`   | Opencore AMR NR/WB audio format                           |  |
+| `--with-openh264`       | OpenH264 library                                          |  |
+| `--with-openjpeg`       | JPEG 2000 image format                                    |  |
+| `--with-openssl`        | SSL support                                               |  |
+| `--with-openvino`       | OpenVINO for Deep Neural Network based filters            |  |
+| `--with-rav1e`          | AV1 encoding                                              |  |
+| `--with-svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |  |
+| `--with-rtmpdump`       | Dumping RTMP streams                                      |  |
+| `--with-rubberband`     | Audio time-stretching and pitch-shifting                  |  |
+| `--with-two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |  |
+| `--with-webp`           | Encode WEBP images                                        |  |
+| `--with-whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          |  |
+| `--with-xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |  |
+| `--with-zeromq`         | Receive commands sent through a libzeromq client          |  |
+| `--with-zimg`           | Image conversion library                                  |  |
+| `--with-srt`            | Secure Reliable Transport library                         |  |
+| `--with-libvmaf`        | VMAF video quality metric                                 |  |
+| `--with-libxml2`        | XML parser and toolkit                                    |  |
+| `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
 
 ## Troubleshooting
 
