@@ -27,6 +27,7 @@ class Ffmpeg < Formula
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-openal-soft", "Enable OpenAL (Open Audio Library) for macOS targets"
+  option "with-openapv", "Enable OpenAPV (Open Advanced Professional Video Codec)"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
@@ -94,6 +95,7 @@ class Ffmpeg < Formula
   depends_on "libvmaf" => :optional
   depends_on "libxml2" => :optional
   depends_on "openal-soft" => :optional
+  depends_on "openapv" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -215,6 +217,7 @@ class Ffmpeg < Formula
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-libopenvino" if build.with? "openvino"
+    args << "--enable-liboapv" if build.with? "openapv"
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries

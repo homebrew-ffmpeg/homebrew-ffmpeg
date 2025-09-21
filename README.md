@@ -122,6 +122,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-tesseract`      | An Optical Character Recognition (OCR) engine             |  |
 | `--with-libvidstab`     | Video stabilization library                               |  |
 | `--with-openal-soft`    | OpenAL (Open Audio Library) for macOS targets             |  |
+| `--with-openapv`        | OpenAPV (Open Advanced Professional Video Codec)          |  |
 | `--with-opencore-amr`   | Opencore AMR NR/WB audio format                           |  |
 | `--with-openh264`       | OpenH264 library                                          |  |
 | `--with-openjpeg`       | JPEG 2000 image format                                    |  |
