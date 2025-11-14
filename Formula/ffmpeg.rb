@@ -145,9 +145,10 @@ class Ffmpeg < Formula
   end
 
   def install
-    ENV["PKG_CONFIG_PATH"] = "#{HOMEBREW_PREFIX}/lib/pkgconfig:#{HOMEBREW_PREFIX}/share/pkgconfig#{ENV["PKG_CONFIG_PATH"] ? ":#{ENV["PKG_CONFIG_PATH"]}" : ""}"
-    ENV["PKG_CONFIG_LIBDIR"] = "#{HOMEBREW_PREFIX}/lib/pkgconfig#{ENV["PKG_CONFIG_LIBDIR"] ? ":#{ENV["PKG_CONFIG_LIBDIR"]}" : ""}"
-
+    ENV.prepend_path "PKG_CONFIG_PATH", HOMEBREW_PREFIX/"lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", HOMEBREW_PREFIX/"share/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_LIBDIR", HOMEBREW_PREFIX/"lib/pkgconfig"
+    
     args = %W[
       --prefix=#{prefix}
       --enable-shared
