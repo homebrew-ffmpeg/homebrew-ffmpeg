@@ -25,24 +25,24 @@ jobs:
         id: check_version
         run: |
           # Get current version from formula
-          CURRENT_VERSION=$(grep -oP '(?<=ffmpeg-)[0-9]+\.[0-9]+(\.[0-9]+)?' Formula/ffmpeg.rb | head -1)
-          echo "Current version: $CURRENT_VERSION"
-          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          CURRENT_VERSION=$(grep -oP '(?<=ffmpeg-)[0-9]+\.[0-9]+(\.[0-9]+)?' "Formula/ffmpeg.rb" | head -1)
+          echo "Current version: ${CURRENT_VERSION}"
+          echo "current_version=${CURRENT_VERSION}" >> "$GITHUB_OUTPUT"
 
           # Fetch the latest version from FFmpeg releases page
           LATEST_VERSION=$(curl -sL https://ffmpeg.org/releases/ | \
             grep -oP 'ffmpeg-\K[0-9]+\.[0-9]+(\.[0-9]+)?(?=\.tar\.xz)' | \
             sort -V | tail -1)
-          echo "Latest version: $LATEST_VERSION"
-          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          echo "Latest version: ${LATEST_VERSION}"
+          echo "latest_version=${LATEST_VERSION}" >> "$GITHUB_OUTPUT"
 
           # Compare versions
           if [ "$CURRENT_VERSION" != "$LATEST_VERSION" ]; then
-            echo "New version available: $LATEST_VERSION"
-            echo "update_available=true" >> $GITHUB_OUTPUT
+            echo "New version available: ${LATEST_VERSION}"
+            echo "update_available=true" >> "$GITHUB_OUTPUT"
           else
             echo "Already up to date"
-            echo "update_available=false" >> $GITHUB_OUTPUT
+            echo "update_available=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Download, verify signature, and calculate SHA256
@@ -54,7 +54,7 @@ jobs:
           TARBALL="ffmpeg-${VERSION}.tar.xz"
           SIGNATURE="${TARBALL}.asc"
 
-          echo "Downloading $URL and signature"
+          echo "Downloading ${URL} and signature"
           wget -q "$URL"
           wget -q "${URL}.asc"
 
@@ -62,18 +62,16 @@ jobs:
           curl -sL https://ffmpeg.org/ffmpeg-devel.asc | gpg --import
 
           echo "Verifying GPG signature"
-          gpg --verify "$SIGNATURE" "$TARBALL"
-
-          if [ $? -ne 0 ]; then
+          if ! gpg --verify "$SIGNATURE" "$TARBALL"; then
             echo "❌ GPG signature verification failed!"
             exit 1
           fi
           echo "✅ GPG signature verified successfully"
 
           SHA256=$(sha256sum "$TARBALL" | awk '{print $1}')
-          echo "SHA256: $SHA256"
-          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
-          echo "url=$URL" >> $GITHUB_OUTPUT
+          echo "SHA256: ${SHA256}"
+          echo "sha256=${SHA256}" >> "$GITHUB_OUTPUT"
+          echo "url=${URL}" >> "$GITHUB_OUTPUT"
 
           # Clean up
           rm "$TARBALL" "$SIGNATURE"
@@ -86,12 +84,12 @@ jobs:
           URL=${{ steps.download.outputs.url }}
 
           # Update the URL line
-          sed -i "s|url \"https://ffmpeg.org/releases/ffmpeg-.*\.tar\.xz\"|url \"$URL\"|" Formula/ffmpeg.rb
+          sed -i "s|url \"https://ffmpeg.org/releases/ffmpeg-.*\.tar\.xz\"|url \"${URL}\"|" "Formula/ffmpeg.rb"
 
           # Update the SHA256 line
-          sed -i "s|sha256 \".*\"|sha256 \"$SHA256\"|" Formula/ffmpeg.rb
+          sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" "Formula/ffmpeg.rb"
 
-          echo "Formula updated to version $VERSION"
+          echo "Formula updated to version ${VERSION}"
 
       - name: Create Pull Request
         if: steps.check_version.outputs.update_available == 'true'
