@@ -99,7 +99,7 @@ class Ffmpeg < Formula
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "openssl" => :optional
+  depends_on "openssl@3" => :optional
   depends_on "openvino" => :optional
   depends_on "rav1e" => :optional
   depends_on "rtmpdump" => :optional
@@ -215,13 +215,13 @@ class Ffmpeg < Formula
     args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
-    args << "--enable-openssl" if build.with? "openssl"
+    args << "--enable-openssl" if build.with? "openssl@3"
     args << "--enable-libopenvino" if build.with? "openvino"
     args << "--enable-liboapv" if build.with? "openapv"
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    args << "--enable-nonfree" if build.with?("decklink") || build.with?("fdk-aac") || build.with?("openssl")
+    args << "--enable-nonfree" if build.with?("decklink") || build.with?("fdk-aac") || build.with?("openssl@3")
 
     if build.with? "decklink"
       args << "--enable-decklink"
