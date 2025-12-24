@@ -60,8 +60,6 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libvorbis"
   depends_on "libvpx"
-  depends_on "libx11"
-  depends_on "libxcb"
   depends_on "opus"
   depends_on "sdl2"
   depends_on "snappy"
@@ -93,7 +91,6 @@ class Ffmpeg < Formula
   depends_on "libtensorflow" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
-  depends_on "libxml2" => :optional
   depends_on "openal-soft" => :optional
   depends_on "openapv" => :optional
   depends_on "opencore-amr" => :optional
@@ -117,6 +114,7 @@ class Ffmpeg < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+  uses_from_macos "libxml2" => :optional
 
   on_macos do
     depends_on "libarchive"
@@ -127,6 +125,8 @@ class Ffmpeg < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "libdrm"
+    depends_on "libx11"
+    depends_on "libxcb"
     depends_on "libxext"
     depends_on "libxv"
   end
