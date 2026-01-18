@@ -195,7 +195,6 @@ class Ffmpeg < Formula
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
-    args << "--enable-libplacebo" if build.with? "libplacebo"
     args << "--enable-librav1e" if build.with? "rav1e"
     args << "--enable-libsvtav1" if build.with? "svt-av1"
     args << "--enable-librist" if build.with? "librist"
@@ -240,6 +239,12 @@ class Ffmpeg < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
       args << "--enable-libjack"
       args << "--enable-indev=jack"
+    end
+
+    if build.with? "libplacebo"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libplacebo"].opt_lib/"pkgconfig"
+      args << "--enable-libplacebo"
+      args << "--enable-vulkan"
     end
 
     if build.with? "whisper-cpp"
