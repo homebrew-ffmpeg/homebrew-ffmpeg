@@ -60,6 +60,14 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg --HEAD
 
 Please note that we don't generally provide support `HEAD` builds, since they may cause issues with other Homebrew-supplied formulae.
 
+### Installing the commands under a different name
+
+If you need to install the commands of this FFmpeg formula under an alternative name (for example, having the regular `ffmpeg`, `ffprobe` and `ffplay` commands in parallel with `ffmpeg-alt`, `ffprobe-alt` and `ffplay-alt`), you can run:
+
+```bash
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-alt-name
+```
+
 ## Updating
 
 To update Homebrew and upgrade the formula to the most recent stable release:

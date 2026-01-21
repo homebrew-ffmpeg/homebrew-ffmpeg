@@ -6,6 +6,7 @@ class Ffmpeg < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
+  option "with-alt-name", "Use command names ff*-alt rather than ff*"
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-dvd", "Enable DVD-Video demuxer, powered by libdvdnav and libdvdread"
@@ -265,7 +266,14 @@ class Ffmpeg < Formula
     end
 
     system "./configure", *args
-    system "make", "install"
+    if build.with? "alt-name"
+      system "make"
+      bin.install "ffmpeg" => "ffmpeg-alt"
+      bin.install "ffprobe" => "ffprobe-alt"
+      bin.install "ffplay" => "ffplay-alt"
+    else
+      system "make", "install"
+    end
 
     # Build and install additional FFmpeg tools
     system "make", "alltools"
@@ -283,12 +291,26 @@ class Ffmpeg < Formula
   test do
     # Create a 5 second test MP4
     mp4out = testpath/"video.mp4"
-    system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
-    assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+    if build.with? "alt-name"
+      system bin/"ffmpeg-alt", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m,
+                   shell_output("#{bin}/ffprobe-alt -hide_banner #{mp4out} 2>&1"))
+    else
+      system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
+      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m,
+                   shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+    end
 
     # Re-encode it in HEVC/Matroska
     mkvout = testpath/"video.mkv"
-    system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
-    assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
+    if build.with? "alt-name"
+      system bin/"ffmpeg-alt", "-i", mp4out, "-c:v", "hevc", mkvout
+      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m,
+                   shell_output("#{bin}/ffprobe-alt -hide_banner #{mkvout} 2>&1"))
+    else
+      system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
+      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m,
+                   shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
+    end
   end
 end
