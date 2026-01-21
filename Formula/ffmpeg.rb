@@ -293,20 +293,24 @@ class Ffmpeg < Formula
     mp4out = testpath/"video.mp4"
     if build.with? "alt-name"
       system bin/"ffmpeg-alt", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
-      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe-alt -hide_banner #{mp4out} 2>&1"))
+      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, \
+      shell_output("#{bin}/ffprobe-alt -hide_banner #{mp4out} 2>&1"))
     else
       system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4out
-      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
+      assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, \
+      shell_output("#{bin}/ffprobe -hide_banner #{mp4out} 2>&1"))
     end
 
     # Re-encode it in HEVC/Matroska
     mkvout = testpath/"video.mkv"
     if build.with? "alt-name"
       system bin/"ffmpeg-alt", "-i", mp4out, "-c:v", "hevc", mkvout
-      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe-alt -hide_banner #{mkvout} 2>&1"))
+      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, \
+      shell_output("#{bin}/ffprobe-alt -hide_banner #{mkvout} 2>&1"))
     else
       system bin/"ffmpeg", "-i", mp4out, "-c:v", "hevc", mkvout
-      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
+      assert_match(/Duration: 00:00:05\.00,.*Video: hevc/m, \
+      shell_output("#{bin}/ffprobe -hide_banner #{mkvout} 2>&1"))
     end
   end
 end
