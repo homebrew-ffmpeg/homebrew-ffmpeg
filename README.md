@@ -92,6 +92,7 @@ This formula installs the following libraries by default:
 | `rtmpdump`   | RTMP dumping support       |
 | `sdl2`       | Simple DirectMedia Layer   |
 | `snappy`     | Snappy compression support |
+| `svt-av1`    | Scalable Video Technology for AV1 (encoder and decoder) |
 | `theora`     | Theora encoder             |
 | `x264`       | x264 H.264 encoder         |
 | `x265`       | x265 HEVC encoder          |
@@ -129,7 +130,6 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-openssl`        | SSL support                                               |  |
 | `--with-openvino`       | OpenVINO for Deep Neural Network based filters            |  |
 | `--with-rav1e`          | AV1 encoding                                              |  |
-| `--with-svt-av1`        | Scalable Video Technology for AV1 (encoder and decoder)   |  |
 | `--with-rtmpdump`       | Dumping RTMP streams                                      |  |
 | `--with-rubberband`     | Audio time-stretching and pitch-shifting                  |  |
 | `--with-two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |  |
