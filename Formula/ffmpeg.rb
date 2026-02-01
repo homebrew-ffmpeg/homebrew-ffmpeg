@@ -35,7 +35,6 @@ class Ffmpeg < Formula
   option "with-openssl", "Enable SSL support"
   option "with-openvino", "Enable OpenVINO as a module backend for DNN-based filters"
   option "with-rav1e", "Enable AV1 encoding via librav1e"
-  option "with-svt-av1", "Enable Scalable Video Technology for AV1"
   option "with-rtmpdump", "Enable RTMP dumping support"
   option "with-rubberband", "Enable rubberband library"
   option "with-two-lame", "Enable TwoLAME, an optimized MPEG Audio Layer 2 (MP2) encoder"
@@ -64,6 +63,7 @@ class Ffmpeg < Formula
   depends_on "opus"
   depends_on "sdl2"
   depends_on "snappy"
+  depends_on "svt-av1"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
@@ -104,7 +104,6 @@ class Ffmpeg < Formula
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
   depends_on "srt" => :optional
-  depends_on "svt-av1" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
   depends_on "webp" => :optional
@@ -196,8 +195,8 @@ class Ffmpeg < Formula
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
+    args << "--enable-libplacebo" if build.with? "libplacebo"
     args << "--enable-librav1e" if build.with? "rav1e"
-    args << "--enable-libsvtav1" if build.with? "svt-av1"
     args << "--enable-librist" if build.with? "librist"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
@@ -240,12 +239,6 @@ class Ffmpeg < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
       args << "--enable-libjack"
       args << "--enable-indev=jack"
-    end
-
-    if build.with? "libplacebo"
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libplacebo"].opt_lib/"pkgconfig"
-      args << "--enable-libplacebo"
-      args << "--enable-vulkan"
     end
 
     if build.with? "whisper-cpp"
