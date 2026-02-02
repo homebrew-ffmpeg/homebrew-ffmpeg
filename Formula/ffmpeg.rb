@@ -144,6 +144,11 @@ class Ffmpeg < Formula
     sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
   end
 
+  # Add svt-av1 4.x support
+  patch do
+    url "https://git.ffmpeg.org/gitweb/ffmpeg.git/patch/a5d4c398b411a00ac09d8fe3b66117222323844c"
+    sha256 "1dbbc1a4cf9834b3902236abc27fefe982da03a14bcaa89fb90c7c8bd10a1664"
+  end
   def install
     args = %W[
       --prefix=#{prefix}
