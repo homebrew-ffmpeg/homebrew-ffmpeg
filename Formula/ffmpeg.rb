@@ -163,6 +163,7 @@ class Ffmpeg < Formula
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
+      --enable-libsvtav1
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
