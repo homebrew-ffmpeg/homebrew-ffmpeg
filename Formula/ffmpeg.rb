@@ -149,6 +149,7 @@ class Ffmpeg < Formula
     url "https://git.ffmpeg.org/gitweb/ffmpeg.git/patch/a5d4c398b411a00ac09d8fe3b66117222323844c"
     sha256 "1dbbc1a4cf9834b3902236abc27fefe982da03a14bcaa89fb90c7c8bd10a1664"
   end
+
   def install
     args = %W[
       --prefix=#{prefix}
