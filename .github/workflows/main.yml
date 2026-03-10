@@ -2,6 +2,7 @@ name: GitHub Actions CI
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
   push:
     branches:
       - master
@@ -33,3 +34,38 @@ jobs:
         mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
 
     - run: brew test-bot --skip-recursive-dependents
+
+  test-with-options:
+    if: github.event_name == 'pull_request' && contains(join(github.event.pull_request.labels.*.name, ' '), 'test:')
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Set up Homebrew
+      uses: Homebrew/actions/setup-homebrew@main
+
+    - name: Remove chromaprint from ffmpeg formula
+      run: |
+        grep -v chromaprint Formula/ffmpeg.rb > Formula/ffmpeg.rb.tmp
+        mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
+
+    - name: Determine build flags from labels
+      id: flags
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const labels = context.payload.pull_request.labels.map(l => l.name);
+          const flags = labels
+            .filter(l => l.startsWith('test:'))
+            .map(l => '--with-' + l.replace('test:', ''));
+          const result = flags.join(' ');
+          core.info(`Build flags: ${result}`);
+          core.setOutput('flags', result);
+
+    - name: Install with flags
+      run: brew install --verbose --build-from-source ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
+
+    - name: Test with flags
+      run: brew test ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
