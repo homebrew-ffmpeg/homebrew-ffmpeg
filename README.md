@@ -151,6 +151,14 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-libxml2`        | XML parser and toolkit                                    |  |
 | `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | |
 
+## Installing with All the things
+
+If you want to install ffmpeg with all the flags above (with the exception of decklink and flite which do not have native homebrew-core repos at this time) you can use the below command.
+
+```
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact | tr ' ' '\n' | grep -v 'with-decklink' | grep -v 'with-libflite' | grep -v 'with-alt-name' | xargs)
+```
+
 ## Troubleshooting
 
 In general, please note that we only provide support for current macOS versions that still receive security updates. Beta or pre-release versions as well as legacy versions are not supported.
