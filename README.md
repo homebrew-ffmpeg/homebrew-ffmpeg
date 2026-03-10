@@ -149,7 +149,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-srt`            | Secure Reliable Transport library                         |  |
 | `--with-libvmaf`        | VMAF video quality metric                                 |  |
 | `--with-libxml2`        | XML parser and toolkit                                    |  |
-| `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | |
 
 ## Troubleshooting
 
