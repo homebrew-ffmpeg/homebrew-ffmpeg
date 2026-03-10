@@ -67,5 +67,5 @@ jobs:
     - name: Install with flags
       run: brew install --verbose --build-from-source ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
 
-    - name: Test with flags
-      run: brew test ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
+    - name: Test
+      run: brew test ./Formula/ffmpeg.rb
