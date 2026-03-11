@@ -50,6 +50,12 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg
 
 Note that this may install libraries for which you need extra SDKs installed, such as `--with-decklink`, or libraries which have to be installed before running the formula, such as `--with-chromaprint`.
 
+If you want to install ffmpeg with all the flags above but with the exception of decklink and flite which do not have native homebrew-core repos at this time, you can run:
+
+```bash
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg $(brew options homebrew-ffmpeg/ffmpeg/ffmpeg --compact | tr ' ' '\n' | grep -v 'with-decklink' | grep -v 'with-libflite' | grep -v 'with-alt-name' | xargs)
+```
+
 ### Installing latest Git version (`HEAD`)
 
 FFmpeg recommends installing the latest Git master version over a release. This formula builds the latest release by default, but you can install the latest Git version by adding the `--HEAD` option:
@@ -149,7 +155,8 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-srt`            | Secure Reliable Transport library                         |  |
 | `--with-libvmaf`        | VMAF video quality metric                                 |  |
 | `--with-libxml2`        | XML parser and toolkit                                    |  |
-| `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | The ZVBI library has to be installed **before** running the FFmpeg formula. It can be obtained [from this tap](https://github.com/LesCanauxDiscrets/homebrew-tap) via `brew tap lescanauxdiscrets/tap && brew install lescanauxdiscrets/tap/zvbi`.                                                                                          |
+| `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | |
+
 
 ## Troubleshooting
 
