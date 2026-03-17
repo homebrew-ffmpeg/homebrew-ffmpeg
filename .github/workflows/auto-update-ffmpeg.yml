@@ -83,11 +83,9 @@ jobs:
           SHA256=${{ steps.download.outputs.sha256 }}
           URL=${{ steps.download.outputs.url }}
 
-          # Update the URL line
+          # Update the URL and its corresponding SHA256 (first occurrence only)
           sed -i "s|url \"https://ffmpeg.org/releases/ffmpeg-.*\.tar\.xz\"|url \"${URL}\"|" "Formula/ffmpeg.rb"
-
-          # Update the SHA256 line
-          sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" "Formula/ffmpeg.rb"
+          sed -i "0,/sha256 \".*\"/{s|sha256 \".*\"|sha256 \"${SHA256}\"|}" "Formula/ffmpeg.rb"
 
           echo "Formula updated to version ${VERSION}"
 
