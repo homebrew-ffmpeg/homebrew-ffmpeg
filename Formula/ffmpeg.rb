@@ -1,9 +1,9 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  license "GPL-2.0-or-later"
   url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
   sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
+  license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-alt-name", "Use command names ff*-alt rather than ff*"
