@@ -4,6 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz"
   sha256 "b072aed6871998cce9b36e7774033105ca29e33632be5b6347f3206898e0756a"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-alt-name", "Use command names ff*-alt rather than ff*"
@@ -13,6 +14,7 @@ class Ffmpeg < Formula
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
+  option "with-gglm", "Enable tensor library for machine learning"
   option "with-jack", "Enable Jack support"
   option "with-jpeg-xl", "Enable JPEG XL image format"
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
@@ -73,6 +75,7 @@ class Ffmpeg < Formula
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
+  depends_on "ggml" => :optional
   depends_on "jack" => :optional
   depends_on "jpeg-xl" => :optional
   depends_on "libaribcaption" => :optional
@@ -242,10 +245,7 @@ class Ffmpeg < Formula
       args << "--enable-indev=jack"
     end
 
-    if build.with? "whisper-cpp"
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["whisper-cpp"].opt_libexec/"lib/pkgconfig"
-      args << "--enable-whisper"
-    end
+    args << "--enable-whisper" if build.with? "whisper-cpp"
 
     if build.with? "libzvbi"
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["zvbi"].opt_lib/"pkgconfig"

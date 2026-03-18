@@ -122,6 +122,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-fdk-aac`        | Fraunhofer FDK AAC library                                |  |
 | `--with-libflite`       | Text to speech synthesis                                  | Flite has to be installed **before** running the FFmpeg formula. This is not supported directly via Homebrew. See [this issue](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/157) for some installation options.                                                                                                                |
 | `--with-game-music-emu` | Game Music Emu (GME) support                              |  |
+| `--with-ggml`           | Tensor library for machine learning                       | Needed for whisper-cpp |
 | `--with-jack`           | Jack audio device support                                 |  |
 | `--with-jpeg-xl`        | JPEG XL support                                           |  |
 | `--with-libaribb24`     | Decoding ARIB/ISDB captions                               |  |
@@ -148,7 +149,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-rubberband`     | Audio time-stretching and pitch-shifting                  |  |
 | `--with-two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |  |
 | `--with-webp`           | Encode WEBP images                                        |  |
-| `--with-whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          |  |
+| `--with-whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          | You also need to enable ggml by adding `--with-ggml`. |
 | `--with-xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |  |
 | `--with-zeromq`         | Receive commands sent through a libzeromq client          |  |
 | `--with-zimg`           | Image conversion library                                  |  |
