@@ -56,7 +56,7 @@ class Ffmpeg < Formula
   depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "frei0r"
+  depends_on "frei0r" => :no_linkage
   depends_on "harfbuzz"
   depends_on "lame"
   depends_on "libass"
