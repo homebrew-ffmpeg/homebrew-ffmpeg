@@ -14,7 +14,7 @@ class Ffmpeg < Formula
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
-  option "with-gglm", "Enable tensor library for machine learning"
+  option "with-ggml", "Enable tensor library for machine learning"
   option "with-jack", "Enable Jack support"
   option "with-jpeg-xl", "Enable JPEG XL image format"
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
