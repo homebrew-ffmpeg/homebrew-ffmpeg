@@ -140,13 +140,6 @@ class Ffmpeg < Formula
 
   fails_with gcc: "5"
 
-  # Fix for QtWebEngine, do not remove
-  # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=270209
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
-    sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
-  end
-
   def install
     args = %W[
       --prefix=#{prefix}
