@@ -228,6 +228,7 @@ class Ffmpeg < Formula
     end
 
     if build.with? "dvd"
+      ENV["LDFLAGS"] = "-L#{Formula["libdvdread"].opt_lib} -ldvdread"
       args << "--enable-libdvdnav"
       args << "--enable-libdvdread"
     end
