@@ -228,7 +228,7 @@ class Ffmpeg < Formula
     end
 
     if build.with? "dvd"
-      ENV["LDFLAGS"] = "-L#{Formula["libdvdread"].opt_lib} -ldvdread"
+      ENV.prepend_path "PKG_CONFIG_PATH", Formula["libdvdread"].opt_lib/"pkgconfig"
       args << "--enable-libdvdnav"
       args << "--enable-libdvdread"
     end
