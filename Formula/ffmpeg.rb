@@ -7,7 +7,6 @@ class Ffmpeg < Formula
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   option "with-alt-name", "Use command names ff*-alt rather than ff*"
-  option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-dvd", "Enable DVD-Video demuxer, powered by libdvdnav and libdvdread"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
@@ -71,7 +70,6 @@ class Ffmpeg < Formula
   depends_on "xz"
 
   depends_on "aribb24" => :optional
-  depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "ggml" => :optional
@@ -176,7 +174,6 @@ class Ffmpeg < Formula
     end
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
-    args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libaribcaption" if build.with? "libaribcaption"
     args << "--enable-libaribb24" if build.with? "libaribb24"
     args << "--enable-libbluray" if build.with? "libbluray"
