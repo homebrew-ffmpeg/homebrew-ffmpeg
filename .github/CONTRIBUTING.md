@@ -4,7 +4,7 @@
 
 If you want to contribute a new feature or fix, please:
 
-- Please to not post here random IA hallucinations: you are just wasting our time … and also yours
+- Please to not post random AI hallucinations here: you are just wasting our time … and also yours
 - Check if there isn’t any open issue for the same problem
 - Fork the project
 - Implement your feature or fix
