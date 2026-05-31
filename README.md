@@ -161,7 +161,7 @@ This formula features the following libraries optionally if you pass the respect
 
 ## Troubleshooting
 
-In general, please note that we only provide support for current macOS versions that still receive security updates. Beta or pre-release versions as well as legacy versions are not supported.
+In general, please note that we only provide support for current macOS versions that still receive security updates, as well as for Ubuntu versions that receive standard security maintenance. Beta or pre-release versions as well as legacy versions are not supported.
 
 When installing a piece of SOFTWARE which is using this FFmpeg distribution, then you may get the following error:
 
@@ -184,7 +184,7 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-YOUR-OPTIONS
 
 To report issues, please [file an issue on GitHub](https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues). Please include the full command line you have tested and the full terminal output you got with. Please note that we will only be able to help with issues that are exclusive to this tap and for OS which are officially supported.
 
-If the problem is reproducible with the `homebrew-core` version of `ffmpeg`, please file it [on their tracker](https://github.com/Homebrew/homebrew-core/).
+If the problem is reproducible with the `homebrew-core` version of `ffmpeg-full` or `ffmpeg`, please file it [on their tracker](https://github.com/Homebrew/homebrew-core/).
 
 ## Maintainers
 
