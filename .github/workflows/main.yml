@@ -22,10 +22,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: read
 
     steps:
     - name: Set up Homebrew
+      id: set-up-homebrew
       uses: Homebrew/actions/setup-homebrew@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     # To fix circular dependency issue, see:
     # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/13
@@ -34,7 +42,32 @@ jobs:
         grep -v chromaprint Formula/ffmpeg.rb > Formula/ffmpeg.rb.tmp
         mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
 
-    - run: brew test-bot --skip-recursive-dependents
+    - name: Cache Homebrew Bundler RubyGems
+      uses: actions/cache@v4
+      with:
+        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+        key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: ${{ matrix.os }}-rubygems-
+
+    # Run test-bot as separate steps, mirroring `brew tap-new` output. Each
+    # `brew test-bot` invocation re-establishes tap trust, so the cleanup step
+    # cannot wipe the trust marker before `brew doctor` runs. See:
+    # https://github.com/Homebrew/brew/issues/22775
+    - run: brew test-bot --only-cleanup-before
+
+    - run: brew test-bot --only-setup
+
+    - run: brew test-bot --only-tap-syntax
+
+    - run: brew test-bot --only-formulae --skip-recursive-dependents
+      if: github.event_name == 'pull_request'
+
+    - name: Upload bottles as artifact
+      if: always() && github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v4
+      with:
+        name: bottles_${{ matrix.os }}
+        path: '*.bottle.*'
 
   test-with-options:
     if: github.event_name == 'pull_request' && contains(join(github.event.pull_request.labels.*.name, ' '), 'test:')
