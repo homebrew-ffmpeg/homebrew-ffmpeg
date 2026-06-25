@@ -22,6 +22,7 @@ In order to use this tap, you need to install Homebrew.
 Then, to run a default installation, run:
 
 ```bash
+brew trust homebrew-ffmpeg/ffmpeg
 brew tap homebrew-ffmpeg/ffmpeg
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg
 ```
