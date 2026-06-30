@@ -232,7 +232,7 @@ class Ffmpeg < Formula
     end
 
     if build.with? "jack"
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["jack"].opt_lib/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("jack")/"pkgconfig"
       args << "--enable-libjack"
       args << "--enable-indev=jack"
     end
@@ -240,7 +240,7 @@ class Ffmpeg < Formula
     args << "--enable-whisper" if build.with? "whisper-cpp"
 
     if build.with? "libzvbi"
-      ENV.prepend_path "PKG_CONFIG_PATH", Formula["zvbi"].opt_lib/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("zvbi")/"pkgconfig"
       args << "--enable-libzvbi"
     end
 
