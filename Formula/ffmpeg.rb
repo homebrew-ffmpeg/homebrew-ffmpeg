@@ -227,6 +227,9 @@ class Ffmpeg < Formula
     end
 
     if build.with? "dvd"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdnav")/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdread")/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdcss")/"pkgconfig"
       args << "--enable-libdvdnav"
       args << "--enable-libdvdread"
     end
