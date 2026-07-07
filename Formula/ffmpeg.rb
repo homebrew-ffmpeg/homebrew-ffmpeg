@@ -81,8 +81,6 @@ class Ffmpeg < Formula
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "libdvdread" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "libopenmpt" => :optional
@@ -113,6 +111,14 @@ class Ffmpeg < Formula
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
+
+  # `--with-dvd` needs the DVD libraries — plus libdvdcss, a dependency of
+  # libdvdread — installed and discoverable via pkg-config at build time.
+  if build.with? "dvd"
+    depends_on "libdvdcss"
+    depends_on "libdvdnav"
+    depends_on "libdvdread"
+  end
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -227,6 +233,9 @@ class Ffmpeg < Formula
     end
 
     if build.with? "dvd"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdnav")/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdread")/"pkgconfig"
+      ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libdvdcss")/"pkgconfig"
       args << "--enable-libdvdnav"
       args << "--enable-libdvdread"
     end
