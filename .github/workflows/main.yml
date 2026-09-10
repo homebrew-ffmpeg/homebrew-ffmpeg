@@ -1,4 +1,4 @@
-name: GitHub Actions CI
+name: brew test-bot
 
 on:
   pull_request:
@@ -11,17 +11,22 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-env:
-  HOMEBREW_DEVELOPER: 1
-  HOMEBREW_NO_AUTO_UPDATE: 1
-  HOMEBREW_NO_SANDBOX_LINUX: 1
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 
 jobs:
-  tests:
-    runs-on: ${{ matrix.os }}
+  test-bot:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-26]
+        include:
+          - os: ubuntu-latest
+            container:
+              image: ghcr.io/homebrew/brew:main
+              options: --privileged
+    runs-on: ${{ matrix.os }}
+    container: ${{ fromJSON(toJSON(matrix.container)) }} # zizmor: ignore[unpinned-images]
     permissions:
       actions: read
       checks: read
@@ -31,19 +36,20 @@ jobs:
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
-      uses: Homebrew/actions/setup-homebrew@main
+      uses: Homebrew/actions/setup-homebrew@3cdb78d0f62ad29dd32de765782654f4eedea607 # 2026.08.31.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     # To fix circular dependency issue, see:
     # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/13
     - name: Remove chromaprint from ffmpeg formula
+      working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
       run: |
         grep -v chromaprint Formula/ffmpeg.rb > Formula/ffmpeg.rb.tmp
         mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
 
     - name: Cache Homebrew Bundler RubyGems
-      uses: actions/cache@v4
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ steps.set-up-homebrew.outputs.gems-path }}
         key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -64,23 +70,31 @@ jobs:
 
     - name: Upload bottles as artifact
       if: always() && github.event_name == 'pull_request'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
         name: bottles_${{ matrix.os }}
         path: '*.bottle.*'
 
   test-with-options:
     if: github.event_name == 'pull_request' && contains(join(github.event.pull_request.labels.*.name, ' '), 'test:')
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-26]
+        include:
+          - os: ubuntu-latest
+            container:
+              image: ghcr.io/homebrew/brew:main
+              options: --privileged
+    runs-on: ${{ matrix.os }}
+    container: ${{ fromJSON(toJSON(matrix.container)) }} # zizmor: ignore[unpinned-images]
 
     steps:
     - name: Set up Homebrew
-      uses: Homebrew/actions/setup-homebrew@main
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@3cdb78d0f62ad29dd32de765782654f4eedea607 # 2026.08.31.1
 
     - name: Remove chromaprint from ffmpeg formula
+      working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
       run: |
         grep -v chromaprint Formula/ffmpeg.rb > Formula/ffmpeg.rb.tmp
         mv Formula/ffmpeg.rb.tmp Formula/ffmpeg.rb
@@ -99,7 +113,9 @@ jobs:
           core.setOutput('flags', result);
 
     - name: Install with flags
+      working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
       run: brew install --verbose --build-from-source ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
 
     - name: Test
+      working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
       run: brew test ./Formula/ffmpeg.rb
