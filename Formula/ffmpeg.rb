@@ -10,7 +10,6 @@ class Ffmpeg < Formula
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-dvd", "Enable DVD-Video demuxer, powered by libdvdnav and libdvdread"
-  option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libflite", "Enable text to speech synthesis support via Flite"
   option "with-game-music-emu", "Enable Game Music Emu (GME) support"
   option "with-ggml", "Enable tensor library for machine learning"
@@ -72,7 +71,6 @@ class Ffmpeg < Formula
 
   depends_on "aribb24" => :optional
   depends_on "chromaprint" => :optional
-  depends_on "fdk-aac" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "ggml" => :optional
   depends_on "jack" => :optional
@@ -188,7 +186,6 @@ class Ffmpeg < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
-    args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libflite" if build.with? "libflite"
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
@@ -223,7 +220,7 @@ class Ffmpeg < Formula
 
     # These librares are GPL-incompatible, and require ffmpeg be built with
     # the "--enable-nonfree" flag, which produces unredistributable libraries
-    args << "--enable-nonfree" if build.with?("decklink") || build.with?("fdk-aac") || build.with?("openssl@3")
+    args << "--enable-nonfree" if build.with?("decklink") || build.with?("openssl@3")
 
     if build.with? "decklink"
       args << "--enable-decklink"
