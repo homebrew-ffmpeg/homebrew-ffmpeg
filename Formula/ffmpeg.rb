@@ -39,7 +39,7 @@ class Ffmpeg < Formula
   option "with-rubberband", "Enable rubberband library"
   option "with-two-lame", "Enable TwoLAME, an optimized MPEG Audio Layer 2 (MP2) encoder"
   option "with-webp", "Enable using libwebp to encode WEBP images"
-  option "with-whisper-cpp", "Enable OpenAI's Whisper speech recognition model"
+  option "with-whisper.cpp", "Enable OpenAI's Whisper speech recognition model"
   option "with-xvid", "Enable Xvid"
   option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
@@ -105,7 +105,7 @@ class Ffmpeg < Formula
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
   depends_on "webp" => :optional
-  depends_on "whisper-cpp" => :optional
+  depends_on "whisper.cpp" => :optional
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
@@ -243,8 +243,7 @@ class Ffmpeg < Formula
       args << "--enable-indev=jack"
     end
 
-    args << "--enable-whisper" if build.with? "whisper-cpp"
-
+    args << "--enable-whisper" if build.with? "whisper.cpp"
     if build.with? "libzvbi"
       ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("zvbi")/"pkgconfig"
       args << "--enable-libzvbi"
