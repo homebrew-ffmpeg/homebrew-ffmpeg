@@ -149,7 +149,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-rubberband`     | Audio time-stretching and pitch-shifting                  |  |
 | `--with-two-lame`       | MPEG Audio Layer 2 (MP2) encoder                          |  |
 | `--with-webp`           | Encode WEBP images                                        |  |
-| `--with-whisper-cpp`    | Enable OpenAI's Whisper speech recognition model          | You also need to enable ggml by adding `--with-ggml`. |
+| `--with-whisper.cpp`    | Enable OpenAI's Whisper speech recognition model          | You also need to enable ggml by adding `--with-ggml`. |
 | `--with-xvid`           | XviD support (MPEG-4 Part 2 Encoder)                      |  |
 | `--with-zeromq`         | Receive commands sent through a libzeromq client          |  |
 | `--with-zimg`           | Image conversion library                                  |  |
