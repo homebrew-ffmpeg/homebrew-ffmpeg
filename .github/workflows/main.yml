@@ -114,8 +114,8 @@ jobs:
 
     - name: Install with flags
       working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
-      run: brew install --verbose --build-from-source ./Formula/ffmpeg.rb ${{ steps.flags.outputs.flags }}
+      run: brew install --verbose --build-from-source homebrew-ffmpeg/ffmpeg/ffmpeg ${{ steps.flags.outputs.flags }}
 
     - name: Test
       working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
-      run: brew test ./Formula/ffmpeg.rb
+      run: brew test homebrew-ffmpeg/ffmpeg/ffmpeg
