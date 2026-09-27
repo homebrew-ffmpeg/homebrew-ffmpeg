@@ -1,10 +1,17 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz"
-  sha256 "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e"
   license "GPL-2.0-or-later"
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
+
+  stable do
+    url "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz"
+    sha256 "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e"
+
+    # Fix build with openapv >= 1.0, where `oapvm_create` takes a descriptor argument
+    # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/235
+    patch :DATA
+  end
 
   option "with-alt-name", "Use command names ff*-alt rather than ff*"
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -142,10 +149,6 @@ class Ffmpeg < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix build with openapv >= 1.0, where `oapvm_create` takes a descriptor argument
-  # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/235
-  patch :DATA
 
   def install
     args = %W[

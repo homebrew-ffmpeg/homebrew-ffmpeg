@@ -106,8 +106,9 @@ jobs:
         script: |
           const labels = context.payload.pull_request.labels.map(l => l.name);
           const flags = labels
-            .filter(l => l.startsWith('test:'))
+            .filter(l => l.startsWith('test:') && l !== 'test:head')
             .map(l => '--with-' + l.replace('test:', ''));
+          if (labels.includes('test:head')) flags.unshift('--HEAD');
           const result = flags.join(' ');
           core.info(`Build flags: ${result}`);
           core.setOutput('flags', result);
