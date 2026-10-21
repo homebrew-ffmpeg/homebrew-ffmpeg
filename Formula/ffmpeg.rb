@@ -14,6 +14,7 @@ class Ffmpeg < Formula
   end
 
   option "with-alt-name", "Use command names ff*-alt rather than ff*"
+  option "with-cairo", "Enable the drawvg filter via cairo"
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-decklink", "Enable DeckLink support"
   option "with-dvd", "Enable DVD-Video demuxer, powered by libdvdnav and libdvdread"
@@ -77,6 +78,7 @@ class Ffmpeg < Formula
   depends_on "xz"
 
   depends_on "aribb24" => :optional
+  depends_on "cairo" => :optional
   depends_on "chromaprint" => :optional
   depends_on "game-music-emu" => :optional
   depends_on "ggml" => :optional
@@ -187,6 +189,7 @@ class Ffmpeg < Formula
     end
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
+    args << "--enable-cairo" if build.with? "cairo"
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libaribcaption" if build.with? "libaribcaption"
     args << "--enable-libaribb24" if build.with? "libaribb24"
