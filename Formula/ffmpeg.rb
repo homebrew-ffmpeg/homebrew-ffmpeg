@@ -5,8 +5,8 @@ class Ffmpeg < Formula
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   stable do
-    url "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz"
-    sha256 "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e"
+    url "https://ffmpeg.org/releases/ffmpeg-9.1.tar.xz"
+    sha256 "1a4d394ae63d190a526cd052eb4415c156b5c5e2df37efab41a7de0b8fde2433"
 
     # Fix build with openapv >= 1.0, where `oapvm_create` takes a descriptor argument
     # https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/issues/235
