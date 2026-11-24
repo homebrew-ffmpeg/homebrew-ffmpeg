@@ -39,6 +39,7 @@ class Ffmpeg < Formula
   option "with-rtmpdump", "Enable RTMP dumping support"
   option "with-rubberband", "Enable rubberband library"
   option "with-two-lame", "Enable TwoLAME, an optimized MPEG Audio Layer 2 (MP2) encoder"
+  option "with-vvenc", "Enable H.266/VVC encoding via VVenC"
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-whisper.cpp", "Enable OpenAI's Whisper speech recognition model"
   option "with-xvid", "Enable Xvid"
@@ -106,6 +107,7 @@ class Ffmpeg < Formula
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
+  depends_on "vvenc" => :optional
   depends_on "webp" => :optional
   depends_on "whisper.cpp" => :optional
   depends_on "xvid" => :optional
@@ -212,6 +214,7 @@ class Ffmpeg < Formula
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libvmaf" if build.with? "libvmaf"
+    args << "--enable-libvvenc" if build.with? "vvenc"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libxml2" if build.with? "libxml2"
     args << "--enable-libxvid" if build.with? "xvid"
