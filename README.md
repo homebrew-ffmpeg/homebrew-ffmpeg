@@ -128,6 +128,7 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-jpeg-xl`        | JPEG XL support                                           |  |
 | `--with-libaribb24`     | Decoding ARIB/ISDB captions                               |  |
 | `--with-libaribcaption` | Handling of ARIB STD-B24 based broadcast captions         |  |
+| `--with-libmysofa`      | SOFA HRTF files for the sofalizer filter                  |  |
 | `--with-libmodplug`     | Module/tracker files as inputs via libmodplug             |  |
 | `--with-libopenmpt`     | Module/tracker files as inputs via libopenmpt             |  |
 | `--with-libplacebo`     | GPU-accelerated image/video processing primitives         |  |
@@ -156,6 +157,10 @@ This formula features the following libraries optionally if you pass the respect
 | `--with-zeromq`         | Receive commands sent through a libzeromq client          |  |
 | `--with-zimg`           | Image conversion library                                  |  |
 | `--with-srt`            | Secure Reliable Transport library                         |  |
+| `--with-svt-jpegxs`     | JPEG XS encoder and decoder                               |  |
+| `--with-uavs3d`         | AVS3 decoder                                              |  |
+| `--with-xevd`           | MPEG-5 EVC decoder                                        |  |
+| `--with-xeve`           | MPEG-5 EVC encoder                                        |  |
 | `--with-libvmaf`        | VMAF video quality metric                                 |  |
 | `--with-libxml2`        | XML parser and toolkit                                    |  |
 | `--with-libzvbi`        | Decoding of DVB teletext pages and DVB teletext subtitles | |

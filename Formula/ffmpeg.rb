@@ -19,6 +19,7 @@ class Ffmpeg < Formula
   option "with-libaribb24", "Enable decoding ARIB/ISDB captions"
   option "with-libaribcaption", "Enable ARIB STD-B24 based broadcast captions"
   option "with-libmodplug", "Enable module/tracker files as inputs via libmodplug"
+  option "with-libmysofa", "Enable the sofalizer filter via libmysofa"
   option "with-libopenmpt", "Enable module/tracker files as inputs via libopenmpt"
   option "with-libplacebo", "Enable GPU-accelerated image/video processing primitives"
   option "with-librist", "Enable Reliable Internet Stream Transport (RIST) support"
@@ -38,10 +39,14 @@ class Ffmpeg < Formula
   option "with-rav1e", "Enable AV1 encoding via librav1e"
   option "with-rtmpdump", "Enable RTMP dumping support"
   option "with-rubberband", "Enable rubberband library"
+  option "with-svt-jpegxs", "Enable JPEG XS encoding and decoding via SVT-JPEG-XS"
   option "with-two-lame", "Enable TwoLAME, an optimized MPEG Audio Layer 2 (MP2) encoder"
+  option "with-uavs3d", "Enable AVS3 decoding via uavs3d"
   option "with-vvenc", "Enable H.266/VVC encoding via VVenC"
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-whisper.cpp", "Enable OpenAI's Whisper speech recognition model"
+  option "with-xevd", "Enable MPEG-5 EVC decoding via XEVD"
+  option "with-xeve", "Enable MPEG-5 EVC encoding via XEVE"
   option "with-xvid", "Enable Xvid"
   option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
@@ -84,6 +89,7 @@ class Ffmpeg < Formula
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
+  depends_on "libmysofa" => :optional
   depends_on "libopenmpt" => :optional
   depends_on "libplacebo" => :optional
   depends_on "librist" => :optional
@@ -105,11 +111,15 @@ class Ffmpeg < Formula
   depends_on "rubberband" => :optional
   depends_on "speex" => :optional
   depends_on "srt" => :optional
+  depends_on "svt-jpegxs" => :optional
   depends_on "tesseract" => :optional
   depends_on "two-lame" => :optional
+  depends_on "uavs3d" => :optional
   depends_on "vvenc" => :optional
   depends_on "webp" => :optional
   depends_on "whisper.cpp" => :optional
+  depends_on "xevd" => :optional
+  depends_on "xeve" => :optional
   depends_on "xvid" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
@@ -196,6 +206,7 @@ class Ffmpeg < Formula
     args << "--enable-libgsm" if build.with? "libgsm"
     args << "--enable-libjxl" if build.with? "jpeg-xl"
     args << "--enable-libmodplug" if build.with? "libmodplug"
+    args << "--enable-libmysofa" if build.with? "libmysofa"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopenjpeg" if build.with? "openjpeg"
     args << "--enable-libopenmpt" if build.with? "libopenmpt"
@@ -209,14 +220,18 @@ class Ffmpeg < Formula
     args << "--enable-libspeex" if build.with? "speex"
     args << "--enable-libsrt" if build.with? "srt"
     args << "--enable-libssh" if build.with? "libssh"
+    args << "--enable-libsvtjpegxs" if build.with? "svt-jpegxs"
     args << "--enable-libtensorflow" if build.with? "tensorflow"
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtwolame" if build.with? "two-lame"
+    args << "--enable-libuavs3d" if build.with? "uavs3d"
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libvmaf" if build.with? "libvmaf"
     args << "--enable-libvvenc" if build.with? "vvenc"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libxml2" if build.with? "libxml2"
+    args << "--enable-libxevd" if build.with? "xevd"
+    args << "--enable-libxeve" if build.with? "xeve"
     args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
