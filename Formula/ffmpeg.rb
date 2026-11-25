@@ -191,6 +191,10 @@ class Ffmpeg < Formula
       args << "--enable-opencl"
       args << "--enable-audiotoolbox"
       args << "--enable-videotoolbox"
+      # FFmpeg dlopen()s libvulkan (or libMoltenVK) by leaf name at runtime.
+      # dyld does not search HOMEBREW_PREFIX/lib for leaf names, so without an
+      # rpath the Vulkan hwcontext fails with "Unable to open the libvulkan library!"
+      args << "--extra-ldflags=-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     end
 
     args << "--disable-htmlpages" # The same info is accessible through the man pages.
